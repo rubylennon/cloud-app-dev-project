@@ -9,11 +9,14 @@ gem "rails", "~> 7.0.4"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-# Use sqlite3 as the database for Active Record
+# Use sqlite3 as the database for Active Record [https://rubygems.org/gems/sqlite3]
 gem "sqlite3", "~> 1.4"
 
-# use devise for flexible user authentication
+# use devise for flexible user authentication [https://rubygems.org/gems/devise]
 gem 'devise', '~> 4.8', '>= 4.8.1'
+
+# use jquery-rails to provide jQuery and the jQuery-ujs driver [https://rubygems.org/gems/jquery-rails]
+gem 'jquery-rails', '~> 4.5'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
