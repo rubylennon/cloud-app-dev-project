@@ -18,6 +18,9 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 # use jquery-rails to provide jQuery and the jQuery-ujs driver [https://rubygems.org/gems/jquery-rails]
 gem 'jquery-rails', '~> 4.5'
 
+# use devise-bootstrapped generate default views styled with Bootstrap
+gem 'devise-bootstrapped', '~> 0.1.1'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 

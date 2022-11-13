@@ -94,6 +94,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-bootstrapped (0.1.1)
     erubi (1.11.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -229,6 +230,7 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 4.8, >= 4.8.1)
+  devise-bootstrapped (~> 0.1.1)
   importmap-rails
   jbuilder
   jquery-rails (~> 4.5)
