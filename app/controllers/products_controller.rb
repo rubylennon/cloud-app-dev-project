@@ -19,6 +19,10 @@ class ProductsController < ApplicationController
   def edit
   end
 
+  def search
+    @products = Product.where("product_name LIKE ?","%"+params[:q]+"%")
+  end
+
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)

@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :products
   root to: 'home#index'
   get 'home/about'
+
+  get 'search', to: "products#search"
+
 end
