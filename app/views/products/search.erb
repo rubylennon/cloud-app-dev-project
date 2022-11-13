@@ -1,0 +1,8 @@
+<h1>Search Results</h1>
+
+<% if @products.count == 0 %>
+    <p>Sorry, no products matched your search query. Please try again </p>
+<% else %>
+    <span> <%= @products.count %> Product(s) Found: </span>
+    <%= render @products %>
+<% end %>
