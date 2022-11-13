@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_02_173523) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_13_190306) do
   create_table "products", force: :cascade do |t|
     t.string "product_name"
     t.text "product_description"
     t.decimal "net_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_filename"
   end
 
   create_table "users", force: :cascade do |t|
