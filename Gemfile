@@ -22,7 +22,10 @@ gem 'jquery-rails', '~> 4.5'
 gem 'devise-bootstrapped', '~> 0.1.1'
 
 # library for retrieving and parsing feeds
-gem 'feedjira', '~> 2.0'
+gem 'feedjira'
+
+# add comment here
+gem 'httparty', '~> 0.20.0'
 
 # Ruby FFI library
 gem 'ffi', '~> 1.15', '>= 1.15.5'
