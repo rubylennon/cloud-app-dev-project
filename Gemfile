@@ -24,6 +24,12 @@ gem 'devise-bootstrapped', '~> 0.1.1'
 # library for retrieving and parsing feeds
 gem 'feedjira', '~> 2.0'
 
+# Ruby FFI library
+gem 'ffi', '~> 1.15', '>= 1.15.5'
+
+# Ruby 2 debugger
+gem 'byebug', '~> 9.0', '>= 9.0.6'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
