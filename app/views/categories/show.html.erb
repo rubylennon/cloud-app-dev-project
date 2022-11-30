@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @category %>
+
+<div>
+  <%= link_to "Edit this category", edit_category_path(@category) %> |
+  <%= link_to "Back to categories", categories_path %>
+  <%= button_to "Destroy this category", @category, method: :delete %>
+</div>
+
+
+<% @product.each do |product|%>
+  <div class="card">
+    <%= image_tag("products/#{product.image_filename}") %>
+
+    <h1>This is by cat
+      <%= product.product_name %>
+    </h1>
+    <p class="price">
+      <%= product.net_price %>
+    </p>
+    <p>
+      <%= product.product_description %>
+    </p>
+    <p>
+      <button>
+        <%= link_to "Show this product", product %>
+      </button>
+    </p>
+  </div>
+<% end %>

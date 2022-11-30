@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Categories (<%= @categories.count %>)</h1>
+
+<div id="categories">
+  <% @categories.each do |category| %>
+    <%= render category %>
+    <p>
+      <%= link_to "Show this category", category %>
+    </p>
+  <% end %>
+</div>
+
+<ol>
+  <% @categories.each do |category| %>
+  <li>
+    <%= link_to category_products_path(category) do %>
+      <%= category.title %>
+      (<%= category.products.count %> product(s))
+    <% end %>
+  </li>
+  <% end %>
+</ol>
+
+<%= link_to "New category", new_category_path %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :orders
+  resources :categories
   get 'entries/index'
   get 'entries/show'
   resources :feeds
@@ -15,7 +17,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :categories, only: [:index, :show] do
+    resources :products, only: [:index, :show]
+  end
+
   get 'entries/index'
   get 'entries/show'
+
+  get '/cart', to: 'order_items#index'
+  resources :order_items, path: '/cart/items'
 
 end
