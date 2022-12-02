@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @order = Order.new
+    @order = current_cart.order
   end
 
   # GET /orders/1/edit
@@ -21,17 +21,20 @@ class OrdersController < ApplicationController
 
   # POST /orders or /orders.json
   def create
-    @order = Order.new(order_params)
+    @order = current_cart.order
 
-    respond_to do |format|
-      if @order.save
-        format.html { redirect_to order_url(@order), notice: "Order was successfully created." }
-        format.json { render :show, status: :created, location: @order }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
+    if @order.update(order_params.merge(status: 'open'))
+      session[:cart_token] = nil
+      redirect_to root_path
+    else
+      render :new
     end
+  end
+
+  private
+
+  def order_params
+    params.require(:order).permit(:first_name, :last_name)
   end
 
   # PATCH/PUT /orders/1 or /orders/1.json
