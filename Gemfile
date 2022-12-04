@@ -45,6 +45,9 @@ gem "turbo-rails"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
+# activity tracking for your ActiveRecord models
+gem 'public_activity', git: 'https://github.com/chaps-io/public_activity', tag: 'v2.0.2'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 

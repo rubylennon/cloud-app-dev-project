@@ -1,0 +1,35 @@
+<table style="width:100%">
+  <tr>
+    <th colspan="5">Activity Log</th>
+  </tr>
+  <tr>
+    <th>Date/Time</th>
+    <th>Object</th>
+    <th>Object ID</th>
+    <th>Action By (User ID)</th>
+    <th>Action By (Email)</th>
+    <th>Activity Type</th>
+  </tr>
+  <% @activities.each do |activity| %>
+    <tr>
+      <td>
+        <%= activity.created_at %>
+      </td>
+      <td>
+        <%= activity.trackable_type %>
+      </td>
+      <td>
+        <%= activity.trackable_id %>
+      </td>
+      <td>
+        <%= activity.owner_id %>
+      </td>
+      <td>
+        <%= activity.owner&.email %>
+      </td>
+      <td>
+        <%= activity.key %>
+      </td>
+    </tr>
+  <% end %>
+</table>

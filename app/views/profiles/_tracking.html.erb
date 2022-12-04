@@ -1,0 +1,29 @@
+<table style="width:100%">
+  <tr>
+    <th colspan="5">User Login Information</th>
+  </tr>
+  <tr>
+    <th>Sign In Count</th>
+    <th>Current Sign In At</th>
+    <th>Last Signed In At</th>
+    <th>Current Sign In IP</th>
+    <th>Last Sign In IP</th>
+  </tr>
+  <tr>
+    <td>
+      <%= @user.sign_in_count %>
+    </td>
+    <td>
+      <%= @user.current_sign_in_at %>
+    </td>
+    <td>
+      <%= @user.last_sign_in_at %>
+    </td>
+    <td>
+      <%= @user.current_sign_in_ip %>
+    </td>
+    <td>
+      <%= @user.last_sign_in_ip %>
+    </td>
+  </tr>
+</table>
