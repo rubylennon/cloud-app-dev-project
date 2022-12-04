@@ -1,7 +1,10 @@
-<h1><%= @user.full_name %></h1>
+<h1><%= @user.full_name %> Account Details</h1>
 
-<p><strong>Admin:</string> <%=@user.admin? %></p>
+<p>
+  <strong>Admin:</strong>
+  <%=@user.admin?%>
+</p>
 
 <% if current_user.id == @user.id %>
-    <%= link_to 'Edit My Profile', edit_user_path(current_user), class: 'btn btn-primary' %>
+    <%= link_to 'Edit Account Details', edit_user_path(current_user), class: 'btn btn-primary' %>
 <% end %>

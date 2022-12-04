@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/chaps-io/public_activity
+  revision: 7d7180316569d7fb88386cf38c81747870779961
+  tag: v2.0.2
+  specs:
+    public_activity (2.0.2)
+      actionpack (>= 5.0.0)
+      activerecord (>= 5.0)
+      i18n (>= 0.5.0)
+      railties (>= 5.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -251,6 +262,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jquery-rails (~> 4.5)
+  public_activity!
   puma (~> 5.0)
   rails (~> 7.0.4)
   selenium-webdriver

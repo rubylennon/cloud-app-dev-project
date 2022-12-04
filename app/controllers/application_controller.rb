@@ -17,4 +17,6 @@ class ApplicationController < ActionController::Base
         session[:cart_token] ||= SecureRandom.hex(8)
         @cart_token = session[:cart_token]
     end
+
+    include PublicActivity::StoreController
 end
