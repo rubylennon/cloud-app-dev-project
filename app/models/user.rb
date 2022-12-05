@@ -4,10 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
 
-  def full_name
-    "#{first_name} #{last_name}"
-  end
-
   has_one :profile, dependent: :destroy
 
   include PublicActivity::Model

@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find(params[:id])
     @user = User.find(@profile.user_id)
-    @activities = PublicActivity::Activity "product_name LIKE ?","%"+params[:q]+"%"
+    @activities = PublicActivity::Activity.where("owner_id == ?",@user.id.to_s)
   end
 
   # GET /profiles/new
