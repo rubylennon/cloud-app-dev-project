@@ -1,8 +1,13 @@
-<h1><%= @user.full_name %> Account Details</h1>
+<h1>Account Details</h1>
 
 <p>
-  <strong>Admin:</strong>
-  <%=@user.admin?%>
+  <strong>Full Name:</strong>
+  <%= @user.full_name %>
+</p>
+
+<p>
+  <strong>Account Type:</strong>
+  <%= @user.account_type %>
 </p>
 
 <% if current_user.id == @user.id %>

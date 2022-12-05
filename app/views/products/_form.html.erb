@@ -27,6 +27,11 @@
   </div>
 
   <div>
+    <%= form.label :category, style: "display: block" %>
+    <%= form.select(:title, Category.all.collect { |s| [s.title, s.id] }, {:include_blank => true, :selected => form.object.id}) %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

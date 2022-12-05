@@ -14,7 +14,7 @@
 <ol>
   <% @categories.each do |category| %>
   <li>
-    <%= link_to category_products_path(category) do %>
+    <%= link_to category do %>
       <%= category.title %>
       (<%= category.products.count %> product(s))
     <% end %>
