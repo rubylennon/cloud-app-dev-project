@@ -1,7 +1,10 @@
 <div class="container">
-  <h3><%= link_to @entry.title, @entry.url %></h3>
-  <i>Author: <%= @entry.author %></i>
-  <p>
-    <%= @entry.content.html_safe %>
-  </p>
+  <p>Title: <%= @entry.title %></p>
+  <p>URL: <%= link_to @entry.url %> </p>
+  <p>Author: <%= @entry.author %></p>
+  <p>Published Date: <%= @entry.published %></p>
+</div>
+
+<div id="entry">
+  <%= @entry.valid_content.html_safe %>
 </div>
