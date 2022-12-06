@@ -2,11 +2,16 @@
 
 <h1>Feeds</h1>
 
+<%= link_to "Update Feeds", my_rake_task_path, :method => 'get' %>
+
 <div id="feeds">
   <% @feeds.each do |feed| %>
     <%= render feed %>
     <p>
-      <%= link_to "Show this feed", feed %>
+      <%= link_to "Feed Settings", feed %>
+    </p>
+    <p>
+      <%= link_to "Feed Entries List", entries_path(feed.id) %>
     </p>
   <% end %>
 </div>

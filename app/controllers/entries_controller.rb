@@ -6,12 +6,12 @@ class EntriesController < ApplicationController
   end
 
   def show
-    @entry = Entry.find(params[:id])
+    @entry = Entry.find(params[:id]).decorate
   end
 
   private
-
   def set_feed
     @feed = Feed.find(params[:id])
   end
+
 end

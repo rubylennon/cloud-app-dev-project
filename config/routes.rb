@@ -18,12 +18,6 @@ Rails.application.routes.draw do
   get 'home/about'
   get 'search', to: "products#search"
 
-  resources :feeds do
-    member do
-      resources :entries, only: [:index, :show]
-    end
-  end
-
   resources :categories, only: [:index, :show] do
     resources :products, only: [:index, :show]
   end
@@ -31,10 +25,18 @@ Rails.application.routes.draw do
   get 'entries/index'
   get 'entries/show'
 
+  resources :feeds do
+    member do
+      resources :entries, only: [:index, :show]
+    end
+  end
+
   get '/cart', to: 'order_items#index'
   resources :order_items, path: '/cart/items'
 
   get'/cart/checkout', to: 'orders#new', as: :checkout
   patch '/cart/checkout', to: 'orders#create'
+
+  get 'rake_task', to: 'feeds#get_info', as: 'my_rake_task'
 
 end

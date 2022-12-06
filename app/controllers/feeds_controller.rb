@@ -1,5 +1,6 @@
 class FeedsController < ApplicationController
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
+  require 'rake'
 
   # GET /feeds
   # GET /feeds.json
@@ -19,6 +20,18 @@ class FeedsController < ApplicationController
 
   # GET /feeds/1/edit
   def edit
+  end
+
+  def rake_task
+
+  end
+
+  def get_info
+    system "rake sync &"
+    Rails.application.load_tasks
+    Rake::Task['sync:feeds'].invoke
+    flash[:notice] = "Retrieving and updating feed entries"
+    redirect_to feeds_path
   end
 
   # POST /feeds
@@ -71,4 +84,5 @@ class FeedsController < ApplicationController
   def feed_params
     params.require(:feed).permit(:name, :url, :description)
   end
+
 end

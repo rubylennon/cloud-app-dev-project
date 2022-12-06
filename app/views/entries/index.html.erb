@@ -1,9 +1,40 @@
-<div class="container">
+
+<table style="width:100%">
+  <tr>
+    <th colspan="5">Feed Entries</th>
+  </tr>
+  <tr>
+    <th>Entry ID</th>
+    <th>Entry Title</th>
+    <th>Published Date</th>
+    <th>Author</th>
+    <th>Feed</th>
+    <th>Content Available</th>
+  </tr>
   <% @entries.each do |entry| %>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <%= link_to entry.title, entry %> - <i> content: <%= entry.content %> </i>
-      </div>
-    </div>
+  <tr>
+    <td>
+      <%= entry.id %>
+    </td>
+    <td>
+      <%= link_to entry.title, entry %>
+    </td>
+    <td>
+      <%= entry.published.strftime("%Y-%m-%d") %>
+    </td>
+    <td>
+      <%= entry.author %>
+    </td>
+    <td>
+      <%= entry.feed.name %>
+    </td>
+    <td>
+      <% if entry.content == nil %>
+        False
+      <% else %>
+        True
+      <% end %>
+    </td>
+  </tr>
   <% end %>
-</div>
+</table>

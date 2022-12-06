@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_04_163557) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_06_094451) do
   create_table "activities", force: :cascade do |t|
     t.string "trackable_type"
     t.integer "trackable_id"
@@ -45,6 +45,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_04_163557) do
     t.integer "feed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
+    t.string "image"
   end
 
   create_table "feeds", force: :cascade do |t|
