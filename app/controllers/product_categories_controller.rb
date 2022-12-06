@@ -1,4 +1,5 @@
 class ProductCategoriesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_product_category, only: %i[ show edit update destroy ]
 
   # GET /product_categories or /product_categories.json

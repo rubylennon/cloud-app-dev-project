@@ -24,10 +24,6 @@
             </li>
 
             <li class="nav-item">
-              <%= link_to 'Inspire Me', entries_index_path, class: 'nav-link' %>
-            </li>
-
-            <li class="nav-item">
               <%= link_to 'Product Categories', categories_path, class: 'nav-link' %>
             </li>
 
@@ -51,6 +47,10 @@
                   <%= link_to 'View Profile', current_user.profile, class: 'nav-link' %>
                 </li>
               <% end %>
+
+              <li class="nav-item">
+                <%= link_to 'My Orders', orders_path, class: 'nav-link' %>
+              </li>
 
               <li class="nav-item">
                   <%= link_to 'Account Settings', edit_user_registration_path, class: 'nav-link' %>
