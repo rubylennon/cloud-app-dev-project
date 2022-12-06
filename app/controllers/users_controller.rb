@@ -1,5 +1,6 @@
 # @Ref: https://www.youtube.com/watch?v=8UIG9Ggu9Q4
 class UsersController < ApplicationController
+  load_and_authorize_resource
   before_action :authenticate_user!, only: [:show]
 
   def index
@@ -11,13 +12,14 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
     respond_to do |format|
-      if current_user.update(user_params)
-        format.html { redirect_to current_user, notice: 'You successfully updated your profile.'}
+      if @user.update(user_params)
+        format.html { redirect_to user_path(@user.id), notice: 'You successfully updated your profile.'}
       else
         format.html { render :edit }
       end

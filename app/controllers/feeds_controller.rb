@@ -1,4 +1,5 @@
 class FeedsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
   require 'rake'
 

@@ -10,6 +10,6 @@
   <%= @user.account_type %>
 </p>
 
-<% if current_user.id == @user.id %>
-    <%= link_to 'Edit Account Details', edit_user_path(current_user), class: 'btn btn-primary' %>
+<% if current_user.id == @user.id || current_user.admin? %>
+    <%= link_to 'Edit Account Details', edit_user_path(@user.id), class: 'btn btn-primary' %>
 <% end %>

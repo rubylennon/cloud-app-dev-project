@@ -51,6 +51,9 @@ gem 'public_activity', git: 'https://github.com/chaps-io/public_activity', tag: 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Simple authorization solution for Rails. All permissions are stored in a single location.
+gem 'cancancan', '~> 3.4'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

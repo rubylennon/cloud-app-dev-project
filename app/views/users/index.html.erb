@@ -1,5 +1,56 @@
 <h1>Users</h1>
-
-<ul>
-    <%= render @users %>
-</ul>
+<table style="width:100%">
+  <tr>
+    <th colspan="5">Registered Users</th>
+  </tr>
+  <tr>
+    <th>ID</th>
+    <th>Email</th>
+    <th>Admin</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Created At</th>
+    <th>Sign In Count</th>
+    <th>Account Settings</th>
+    <th>View Profile</th>
+    <th>Account Details</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td>
+        <%= user.id %>
+      </td>
+      <td>
+        <%= user.email %>
+      </td>
+      <td>
+        <%= user.admin %>
+      </td>
+      <td>
+        <%= user.first_name %>
+      </td>
+      <td>
+        <%= user.last_name %>
+      </td>
+      <td>
+        <%= user.created_at %>
+      </td>
+      <td>
+        <%= user.sign_in_count %>
+      </td>
+      <td>
+        <%= link_to "View Settings", edit_user_registration_path %>
+      </td>
+      <td>
+        <% if user.profile.nil? %>
+          No Profile
+        <% else %>
+          <%= link_to "View Profile", profile_path(user.profile.id) %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to "View Details", user %>
+      </td>
+    </tr>
+  <% end %>
+</table>
