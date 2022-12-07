@@ -69,6 +69,6 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:first_name, :last_name, :sub_total)
+      params.require(:order).permit(:first_name, :last_name, :sub_total, :total)
     end
 end

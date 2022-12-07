@@ -1,6 +1,6 @@
 class ShoppingCart
 
-  delegate :sub_total, to: :order
+  delegate :sub_total, :total, to: :order
 
   def initialize(token:)
     @token = token
@@ -9,6 +9,7 @@ class ShoppingCart
   def order
     @order ||= Order.find_or_create_by(token: @token, status: 'cart') do |order|
       order.sub_total = 0
+      order.total = 0
     end
   end
 
@@ -43,6 +44,14 @@ class ShoppingCart
 
   def update_sub_total!
     order.sub_total = order.items.sum('quantity * price')
+    order.save
+    update_total!
+  end
+
+  private
+
+  def update_total!
+    order.total = (order.sub_total * 0.23) + order.sub_total
     order.save
   end
 

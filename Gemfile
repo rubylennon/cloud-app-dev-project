@@ -75,6 +75,12 @@ gem "bootsnap", require: false
 # adds an object-oriented layer of presentation logic to your Rails apps
 gem 'draper', '~> 4.0', '>= 4.0.2'
 
+# Rails observer
+gem 'rails-observers', '~> 0.1.5'
+
+# Provides a simple logging utility for outputting messages
+gem 'logger', '~> 1.5', '>= 1.5.2'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
