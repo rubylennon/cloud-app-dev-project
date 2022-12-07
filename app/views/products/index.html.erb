@@ -1,27 +1,25 @@
 <p style="color: green"><%= notice %></p>
-
+<%= link_to "New product", new_product_path %>
 <h1>Products</h1>
 
 
-  <% @products.each do |product|%>
-    <div class="card">
-      <%= image_tag("products/#{product.image_filename}") %>
+<% @products.each do |product|%>
+  <div class="card">
+    <%= image_tag("products/#{product.image_filename}") %>
 
-      <h1>
-        <%= product.product_name %>
-      </h1>
-      <p class="price">
-        <%= product.net_price %>
-      </p>
-      <p>
-        <%= product.product_description %>
-      </p>
-      <p>
-        <button>
-          <%= link_to "Show this product", product %>
-        </button>
-      </p>
-    </div>
-  <% end %>
-
-<%= link_to "New product", new_product_path %>
+    <h1>
+      <%= product.product_name %>
+    </h1>
+    <p class="price">
+      <%= product.net_price %>
+    </p>
+    <p>
+      <%= product.product_description %>
+    </p>
+    <p>
+      <button>
+        <%= link_to "Show this product", product %>
+      </button>
+    </p>
+  </div>
+<% end %>

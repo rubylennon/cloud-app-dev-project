@@ -11,6 +11,9 @@ module ECommerceApp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    # Activate observers that should always be running
+    config.active_record.observers = [:product_observer, :order_observer, :product_category_observer]
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
