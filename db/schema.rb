@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_07_204252) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_28_140954) do
   create_table "activities", force: :cascade do |t|
     t.string "trackable_type"
     t.integer "trackable_id"
@@ -77,6 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_204252) do
     t.string "token"
     t.string "status", default: "cart"
     t.decimal "total"
+    t.integer "user_id"
   end
 
   create_table "product_categories", force: :cascade do |t|
