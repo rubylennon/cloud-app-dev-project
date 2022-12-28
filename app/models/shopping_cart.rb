@@ -2,8 +2,9 @@ class ShoppingCart
 
   delegate :sub_total, :total, to: :order
 
-  def initialize(token:)
+  def initialize(token, current_user)
     @token = token
+    @current_user = current_user
   end
 
   def order
@@ -52,6 +53,14 @@ class ShoppingCart
 
   def update_total!
     order.total = (order.sub_total * 0.23) + order.sub_total
+    order.save
+    update_user!
+  end
+
+  private
+
+  def update_user!
+    order.user_id = @current_user
     order.save
   end
 
