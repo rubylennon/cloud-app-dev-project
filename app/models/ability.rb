@@ -8,7 +8,14 @@ class Ability
     if user.admin?
       can :manage, :all
     else
-      can :read, :all
+      can :read, Product
+      can :manage, Profile
+      can :manage, Order
+      can :manage, OrderItem
+      can :manage, User
+      can :read, Category
+      can :read, Feed
+      can :read, Entry
     end
   end
 end
