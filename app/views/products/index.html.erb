@@ -5,11 +5,10 @@
 
 <% @products.each do |product|%>
   <div class="card">
-    <%= image_tag("products/#{product.image_filename}") %>
-
-    <h1>
+      <%= image_tag("products/#{product.image_filename}") %>
+    <h3>
       <%= product.product_name %>
-    </h1>
+    </h3>
     <p class="price">
       <%= product.net_price %>
     </p>

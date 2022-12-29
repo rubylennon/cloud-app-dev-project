@@ -1,19 +1,48 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Feeds</h1>
-
 <%= link_to "Update Feeds", my_rake_task_path, :method => 'get' %>
-
-<div id="feeds">
-  <% @feeds.each do |feed| %>
-    <%= render feed %>
-    <p>
-      <%= link_to "Feed Settings", feed %>
-    </p>
-    <p>
-      <%= link_to "Feed Entries List", entries_path(feed.id) %>
-    </p>
-  <% end %>
-</div>
-
 <%= link_to "New feed", new_feed_path %>
+<table style="width:100%">
+<!--  <tr>-->
+<!--    <th colspan="8">Data Feeds</th>-->
+<!--  </tr>-->
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>URL</th>
+    <th>Description</th>
+    <th>Created At</th>
+    <th>Last Updated</th>
+    <th>Settings</th>
+    <th>Entries</th>
+  </tr>
+  <% @feeds.each do |feed| %>
+    <tr>
+      <td>
+        <%= feed.id %>
+      </td>
+      <td>
+        <%= feed.name %>
+      </td>
+      <td>
+        <%= feed.url %>
+      </td>
+      <td>
+        <%= feed.description %>
+      </td>
+      <td>
+        <%= feed.created_at %>
+      </td>
+      <td>
+        <%= feed.updated_at %>
+      </td>
+      <td>
+        <%= link_to "Feed Settings", feed %>
+      </td>
+      <td>
+        <%= link_to "Feed Entries List", entries_path(feed.id) %>
+      </td>
+    </tr>
+  <% end %>
+</table>

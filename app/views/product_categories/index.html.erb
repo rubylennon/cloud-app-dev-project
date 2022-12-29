@@ -1,14 +1,40 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Product categories</h1>
-
-<div id="product_categories">
-  <% @product_categories.each do |product_category| %>
-    <%= render product_category %>
-    <p>
-      <%= link_to "Show this product category", product_category %>
-    </p>
-  <% end %>
-</div>
-
+<h1>Product Categories</h1>
 <%= link_to "New product category", new_product_category_path %>
+<table style="width:100%">
+<!--  <tr>-->
+<!--    <th colspan="6">Product Category Associations</th>-->
+<!--  </tr>-->
+  <tr>
+    <th>ID</th>
+    <th>Product ID</th>
+    <th>Category ID</th>
+    <th>Created On</th>
+    <th>Last Updated</th>
+    <th>View</th>
+  </tr>
+  <% @product_categories.each do |product_category| %>
+    <tr>
+      <td>
+        <%= product_category.id %>
+      </td>
+      <td>
+        <%= product_category.product_id %>
+      </td>
+      <td>
+        <%= product_category.category_id %>
+      </td>
+      <td>
+        <%= product_category.created_at %>
+      </td>
+      <td>
+        <%= product_category.updated_at %>
+      </td>
+      <td>
+        <%= link_to "View", product_category %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
