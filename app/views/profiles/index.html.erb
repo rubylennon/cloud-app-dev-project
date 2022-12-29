@@ -1,14 +1,40 @@
 <p style="color: green"><%= notice %></p>
-
 <h1>Profiles</h1>
-
-<div id="profiles">
+<table style="width:100%">
+  <!--  <tr>-->
+  <!--    <th colspan="10">Profiles</th>-->
+  <!--  </tr>-->
+  <tr>
+    <th>Profile ID</th>
+    <th>Screen Name</th>
+    <th>City</th>
+    <th>User ID</th>
+    <th>Created On</th>
+    <th>Last Updated</th>
+    <th>View</th>
+  </tr>
   <% @profiles.each do |profile| %>
-    <%= render profile %>
-    <p>
-      <%= link_to "Show this profile", profile %>
-    </p>
+    <tr>
+      <td>
+        <%= profile.id %>
+      </td>
+      <td>
+        <%= profile.screenname %>
+      </td>
+      <td>
+        <%= profile.city %>
+      </td>
+      <td>
+        <%= profile.user_id %>
+      </td>
+      <td>
+        <%= profile.created_at %>
+      </td>
+      <td>
+        <%= profile.updated_at %>
+      </td>
+      <td>
+        <%= link_to "Show this profile", profile %>
+      </td>
   <% end %>
-</div>
-
-<%= link_to "New profile", new_profile_path %>
+</table>
