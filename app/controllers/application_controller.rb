@@ -1,11 +1,12 @@
 class ApplicationController < ActionController::Base
+    include PublicActivity::StoreController
     def index
     end
 
-    before_action :current_cart
+    before_action :current_cart, only: [:update]
 
     def current_cart
-        @current_cart ||= ShoppingCart.new(cart_token, current_user.id)
+        @current_cart ||= ShoppingCart.new(cart_token, cart_user)
     end
     helper_method :current_cart
 
@@ -18,5 +19,10 @@ class ApplicationController < ActionController::Base
         @cart_token = session[:cart_token]
     end
 
-    include PublicActivity::StoreController
+    def cart_user
+        return @cart_user unless @cart_user.nil?
+
+        @cart_user ||= current_user.id
+    end
+
 end
