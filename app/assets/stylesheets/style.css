@@ -1,12 +1,98 @@
+/*body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}*/
+/*.w3-bar,h1,button {font-family: "Montserrat", sans-serif}*/
+/*.fa-anchor,.fa-coffee {font-size:200px}*/
+
+body {
+    background-color: #DFFDFF;
+    width: 100%;
+}
+
+.container {
+    width:100%;
+}
+
+.content {
+    width:100%;
+}
+
+#profile img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+h1 {
+    text-align: center;
+    font-family: arial;
+    padding-top: 10px;
+    color: #666666;
+}
+
+table {
+    box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
 th {
-    background-color: rebeccapurple;
+    background-color: #90BEDE;
     color: white;
+    border-top: none;
+    text-align: center;
+}
+
+tr {
+    text-decoration: none;
+    text-align: center;
 }
 
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-table {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+tr:nth-child(odd) {
+    background-color: white;
 }
+
+tr:hover {
+    background-color: #E5E1EE;
+}
+
+th:first-of-type {
+    border-top-left-radius: 10px;
+}
+th:last-of-type {
+    border-top-right-radius: 10px;
+}
+tr:last-of-type td:first-of-type {
+    border-bottom-left-radius: 10px;
+}
+tr:last-of-type td:last-of-type {
+    border-bottom-right-radius: 10px;
+}
+
+.navbar button {
+    background-color: #90BEDE;
+    color: white;
+    border-color: #90BEDE;
+}
+
+.navbar button:hover {
+    background-color: #E5E1EE;
+    color: white;
+    border-color: #E5E1EE;
+}
+
+.navbar {
+    background-color: #68EDC6;
+    /*height: 50px;*/
+    color: white;
+}
+
+/*.navbar li {*/
+/*    padding: 0;*/
+/*}*/
+
+.navbar li:hover {
+    background-color: #90F3FF;
+}
+

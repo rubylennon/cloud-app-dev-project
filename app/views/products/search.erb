@@ -4,5 +4,24 @@
     <p>Sorry, no products matched your search query. Please try again </p>
 <% else %>
     <span> <%= @products.count %> Product(s) Found: </span>
-    <%= render @products %>
+    <br>
+    <% @products.each do |product|%>
+      <div class="card">
+        <%= image_tag("products/#{product.image_filename}") %>
+        <h3>
+          <%= product.product_name %>
+        </h3>
+        <p class="price">
+          <%= product.net_price %>
+        </p>
+        <p>
+          <%= product.product_description %>
+        </p>
+        <p>
+          <button>
+            <%= link_to "Show this product", product %>
+          </button>
+        </p>
+      </div>
+    <% end %>
 <% end %>
