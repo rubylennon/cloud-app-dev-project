@@ -9,6 +9,7 @@
     font-family: arial;
     float: left;
     border-radius: 5px;
+    background-color: #E5E1EE;
 }
   
 .price {
@@ -26,7 +27,7 @@
     outline: 0;
     padding: 12px;
     color: purple;
-    background-color: none;
+    background-color: #90BEDE;
     text-align: center;
     cursor: pointer;
     width: 100%;

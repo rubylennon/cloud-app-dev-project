@@ -1,6 +1,31 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @profile %>
+<link rel="stylesheet" href="">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Profile -->
+<div class="w3-card w3-round w3-white">
+  <div class="w3-container">
+    <h1 class="w3-center"><%= @profile.screenname %>'s Profile</h1>
+    <p id="profile" class="w3-center">
+      <%= image_tag("logos/profile.jpg") %>
+    </p>
+    <hr>
+    <p>
+      <i class="fa fa-id-badge fa-fw w3-margin-right w3-text-theme"></i>
+      <%= @profile.screenname %>
+    </p>
+    <p>
+      <i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>
+      <%= @profile.city %>
+    </p>
+    <hr>
+
+  </div>
+</div>
 
 <div>
   <%= link_to "Edit this profile", edit_profile_path(@profile) %> |
@@ -9,6 +34,8 @@
 </div>
 
 <br>
+<h3>User Login Information</h3>
 <%= render 'profiles/tracking' %>
 <br>
+<h3>Activity Log</h3>
 <%= render 'profiles/activity_log' %>

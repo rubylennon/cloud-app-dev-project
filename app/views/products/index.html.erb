@@ -1,11 +1,14 @@
 <p style="color: green"><%= notice %></p>
-<%= link_to "New product", new_product_path %>
 <h1>Products</h1>
 
 
+<%= link_to "New product", new_product_path %>
+
+<br>
+
 <% @products.each do |product|%>
   <div class="card">
-      <%= image_tag("products/#{product.image_filename}") %>
+    <%= image_tag("products/#{product.image_filename}") %>
     <h3>
       <%= product.product_name %>
     </h3>
