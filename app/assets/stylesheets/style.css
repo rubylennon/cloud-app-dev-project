@@ -2,30 +2,32 @@
 /*.w3-bar,h1,button {font-family: "Montserrat", sans-serif}*/
 /*.fa-anchor,.fa-coffee {font-size:200px}*/
 
+/*Application*/
+
+.fa-anchor {
+    font-size: 200px;
+}
+
+.fa-coffee {
+    font-size: 200px;
+}
+
+body,h1,h2,h3,h4,h5,h6 {
+    font-family: "Lato", sans-serif;
+}
+
+.w3-bar,h1,button {
+    font-family: "Montserrat", sans-serif;
+}
+
 body {
     background-color: #DFFDFF;
-    width: 100%;
-}
-
-.container {
-    width:100%;
-}
-
-.content {
-    width:100%;
 }
 
 #profile img {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-}
-
-h1 {
-    text-align: center;
-    font-family: arial;
-    padding-top: 10px;
-    color: #666666;
 }
 
 table {
@@ -68,6 +70,14 @@ tr:last-of-type td:first-of-type {
 }
 tr:last-of-type td:last-of-type {
     border-bottom-right-radius: 10px;
+}
+
+.w3-bar {
+    background-color: #BDA0BC;
+}
+
+#index-container-1 {
+    background-color: #BDA0BC;
 }
 
 .navbar button {
