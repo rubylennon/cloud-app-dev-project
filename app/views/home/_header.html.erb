@@ -1,110 +1,130 @@
 <!-- Navbar -->
-<!--<div class="w3-top">-->
-<!--  <div class="w3-bar w3-red w3-card w3-left-align w3-large">-->
-<!--    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>-->
-<!--    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>-->
-<!--    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 1</a>-->
-<!--    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 2</a>-->
-<!--    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 3</a>-->
-<!--    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a>-->
-<!--  </div>-->
-
-<!--  Navbar on small screens -->
-<!--  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">-->
-<!--    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>-->
-<!--    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>-->
-<!--    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>-->
-<!--    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>-->
-<!--  </div>-->
-<!--</div>-->
-
-<nav class="navbar navbar-expand-lg">
-    <a class="eCommerceApp" href="#"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-
-            <li class="nav-item active">
-                <%= link_to 'eCommerceApp', root_path, class: 'navbar-brand' %>
-            </li>
-
-            <li class="nav-item">
-                <%= link_to 'About Us', home_about_path, class: 'nav-link' %>
-            </li>
-
-            <li class="nav-item">
-                <%= link_to 'Products', products_path, class: 'nav-link' %>
-            </li>
-
-            <li class="nav-item">
-              <%= link_to 'Feeds', feeds_path, class: 'nav-link' %>
-            </li>
-
-            <li class="nav-item">
-              <%= link_to 'Product Categories', categories_path, class: 'nav-link' %>
-            </li>
-
-            <% if current_user && current_user.admin? %>
-              <li class="nav-item">
-                  <%= link_to 'Add New Product', new_product_path, class: 'nav-link' %>
-              </li>
-
-              <li class="nav-item">
-                  <%= link_to 'Users', users_path, class: 'nav-link' %>
-              </li>
-            <% end %>
-
-            <% if user_signed_in? %>
-              <% if current_user.profile == nil %>
-                <li class="nav-item">
-                  <%= link_to 'Create Profile', new_profile_path, class: 'nav-link' %>
-                </li>
-              <% else %>
-                <li class="nav-item">
-                  <%= link_to 'View Profile', current_user.profile, class: 'nav-link' %>
-                </li>
-              <% end %>
-
-              <li class="nav-item">
-                <%= link_to 'My Orders', orders_path, class: 'nav-link' %>
-              </li>
-
-              <li class="nav-item">
-                  <%= link_to 'Account Settings', edit_user_registration_path, class: 'nav-link' %>
-              </li>
-
-              <li class="nav-item">
-                  <%= link_to 'Account Details', user_path(current_user), class: 'nav-link' %>
-              </li>
-
-              <li class="nav-item">
-                  <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link' %>
-              </li>
-
-              <li class="nav-item">
-                <%= link_to 'Cart', cart_path, class: 'nav-link' %>
-              </li>
-
-              <% else %>
-
-              <li class="nav-item">
-                  <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link' %>
-              </li>
-
-              <li class="nav-item">
-                  <%= link_to 'Log In', new_user_session_path, class: 'nav-link' %>
-              </li>
-            <% end %>
-        
-        </ul>
-
-        <form class="form-inline my-2 my-lg-0" action="/search">
-            <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search Products..." aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-
+<div class="w3-top">
+  <div class="w3-bar w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="openNav()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="<%= root_path %>" class="w3-bar-item w3-button w3-padding-large w3-white">eCommerceApp</a>
+    <a href="<%= home_about_path %>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About Us</a>
+    <a href="<%= feeds_path %>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Inspire Me</a>
+    <div class="w3-dropdown-hover w3-hide-small ">
+      <button class="w3-button w3-padding-large">Products <i class="fa fa-caret-down"></i></button>
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="<%= products_path %>" class="w3-bar-item w3-button">View Products</a>
+        <a href="<%= categories_path %>" class="w3-bar-item w3-button">Categories</a>
+      </div>
     </div>
-</nav>
+
+    <% if user_signed_in? %>
+      <div class="w3-dropdown-hover w3-hide-small">
+        <button class="w3-button w3-padding-large">Profile <i class="fa fa-caret-down"></i></button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <% if current_user.profile == nil %>
+            <a href="<%= new_profile_path %>" class="w3-bar-item w3-button">Create Profile</a>
+          <% else %>
+            <a href="<%= profile_path(current_user.profile) %>" class="w3-bar-item w3-button">View Profile</a>
+            <a href="<%= edit_profile_path(current_user.profile) %>" class="w3-bar-item w3-button">Edit Profile</a>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <div class="w3-dropdown-hover w3-hide-small">
+        <button class="w3-button w3-padding-large">Account <i class="fa fa-caret-down"></i></button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a href="<%= user_path(current_user) %>" class="w3-bar-item w3-button">Account Details</a>
+          <a href="<%= edit_user_registration_path %>" class="w3-bar-item w3-button">Account Settings</a>
+          <a href="<%= orders_path %>" class="w3-bar-item w3-button">My Orders</a>
+        </div>
+      </div>
+    <% end %>
+
+    <% if current_user && current_user.admin? %>
+      <div class="w3-dropdown-hover w3-hide-small">
+        <button class="w3-button w3-padding-large">Admin <i class="fa fa-caret-down"></i></button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a href="<%= new_product_path %>" class="w3-bar-item w3-button">Add Products</a>
+          <a href="<%= users_path %>" class="w3-bar-item w3-button">Manage Users</a>
+          <a href="<%= new_feed_path %>" class="w3-bar-item w3-button">Add Feeds</a>
+          <a href="<%= orders_path %>" class="w3-bar-item w3-button">User Orders</a>
+          <a href="<%= profiles_path %>" class="w3-bar-item w3-button">User Profiles</a>
+          <a href="<%= product_categories_path %>" class="w3-bar-item w3-button">Product Categories</a>
+        </div>
+      </div>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <a href="<%= cart_path %>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Cart <i class="fa fa-shopping-cart"></i></a>
+      <a href="<%= destroy_user_session_path %>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Log Out</a>
+      <% else %>
+      <a href="<%= new_user_session_path %>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Log In</a>
+      <a href="<%= new_user_registration_path %>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Sign Up</a>
+    <% end %>
+
+    <form action="/search" class="w3-right">
+      <input name="q" type="text" class="w3-bar-item w3-input w3-padding-large w3-hide-small" placeholder="Search Products...">
+      <button class="w3-bar-item w3-button w3-green w3-padding-large w3-hide-small" type="submit">
+        <i class="fa fa-search"></i>
+      </button>
+    </form>
+
+  </div>
+</div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">-</a>
+  <form action="/search">
+    <input name="q" type="text" class="w3-input" placeholder="Search Products...">
+    <button class="w3-button" type="submit">
+      <i class="fa fa-search"></i>
+    </button>
+  </form>
+  <a href="<%= home_about_path %>" class="w3-bar-item w3-button w3-padding-large">About Us</a>
+  <a href="<%= feeds_path %>" class="w3-bar-item w3-button w3-padding-large">Inspire Me</a>
+  <a href="<%= products_path %>" class="w3-bar-item w3-button w3-padding-large">Products</a>
+  <a href="<%= categories_path %>" class="w3-bar-item w3-button w3-padding-large">Categories</a>
+
+  <% if user_signed_in? %>
+    <% if current_user.profile == nil %>
+      <a href="<%= new_profile_path %>" class="w3-bar-item w3-button w3-padding-large">Create Profile</a>
+    <% else %>
+      <a href="<%= profile_path(current_user.profile) %>" class="w3-bar-item w3-button w3-padding-large">View Profile</a>
+      <a href="<%= edit_profile_path(current_user.profile) %>" class="w3-bar-item w3-button w3-padding-large">Edit Profile</a>
+    <% end %>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <a href="<%= user_path(current_user) %>" class="w3-bar-item w3-button w3-padding-large">Account Details</a>
+    <a href="<%= edit_user_registration_path %>" class="w3-bar-item w3-button w3-padding-large">Account Settings</a>
+    <a href="<%= orders_path %>" class="w3-bar-item w3-button w3-padding-large">My Orders</a>
+  <% end %>
+
+  <% if current_user && current_user.admin? %>
+    <a href="<%= home_about_path %>" class="w3-bar-item w3-button w3-padding-large">Add Products</a>
+    <a href="<%= feeds_path %>" class="w3-bar-item w3-button w3-padding-large">Manage Users</a>
+    <a href="<%= products_path %>" class="w3-bar-item w3-button w3-padding-large">Add Feeds</a>
+    <a href="<%= categories_path %>" class="w3-bar-item w3-button w3-padding-large">User Orders</a>
+    <a href="<%= products_path %>" class="w3-bar-item w3-button w3-padding-large">User Profiles</a>
+    <a href="<%= categories_path %>" class="w3-bar-item w3-button w3-padding-large">Add Products To Category</a>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <a href="<%= cart_path %>" class="w3-bar-item w3-button w3-padding-large">Cart <i class="fa fa-shopping-cart"></i></a>
+    <a href="<%= destroy_user_session_path %>" class="w3-bar-item w3-button w3-padding-large">Log Out</a>
+  <% else %>
+    <a href="<%= new_user_session_path %>" class="w3-bar-item w3-button w3-padding-large">Log In</a>
+    <a href="<%= new_user_registration_path %>" class="w3-bar-item w3-button w3-padding-large">Sign Up</a>
+  <% end %>
+</div>
+
+<script>
+  // Used to toggle the menu on small screens when clicking on the menu button
+  function openNav() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+      } else {
+          x.className = x.className.replace(" w3-show", "");
+      }
+  }
+</script>
