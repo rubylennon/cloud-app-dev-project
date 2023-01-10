@@ -1,21 +1,37 @@
-<div class="row">
-  <div class="col-sm-4 col-sm-offset-4">
-    <h2 class="text-center">Forgot your password?</h2>
+<!--@Ref: https://www.w3schools.com/w3css/w3css_templates.asp
+Reference Description: W3 Templates for web pages using W3.CSS Bootstrap -->
+<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+  <h2>Forgot your password?</h2>
 
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-      <br>
-      <p class="text-left">Please enter your email address and we will send you a link to reset your password.</p>
-      <div class="form-group">
-        <%= f.email_field :email, autofocus: true, placeholder: 'Email Address', class: 'form-control' %>
+  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+    <div class="w3-center"><br>
+      <i class="fa fa-key" aria-hidden="true" class="w3-circle w3-margin-top"></i>
+      <p class="text-left">
+        Please enter your email address and we will send you a link to reset your password.
+      </p>
+
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <form class="w3-container">
+          <div class="w3-section">
+
+            <div class="form-group w3-padding">
+              <label class="w3-left"><b>Email</b></label>
+              <%= f.email_field :email, autofocus: true, placeholder: 'Email Address', class: 'form-control w3-input w3-border w3-margin-bottom' %>
+            </div>
+
+            <div class="form-group w3-padding">
+              <%= f.submit "Send me reset password instructions", class: 'w3-button w3-green w3-block w3-section w3-padding' %>
+            </div>
+
+          </div>
+        </form>
+      <% end %>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <%= render "devise/shared/links" %>
       </div>
 
-      <div class="form-group">
-        <%= f.submit "Send me reset password instructions", class: 'btn btn-primary btn-block btn-lg' %>
-      </div>
-    <% end %>
-    <div class="text-center">
-      <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>

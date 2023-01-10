@@ -1,45 +1,60 @@
-<div class="row">
-  <div class="col-sm-4 col-sm-offset-4">
-    <h1>Edit <%= resource_name.to_s.humanize %></h1>
-    <hr>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+<!--@Ref: https://www.w3schools.com/w3css/w3css_templates.asp
+Reference Description: W3 Templates for web pages using W3.CSS Bootstrap -->
+<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-      <div class="form-group">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, class: 'form-control'  %>
-      </div>
+  <div class="w3-modal-content w3-card-4" style="max-width:600px">
+    <div class="w3-center"><br>
+      <i class="fa fa-user-circle-o" aria-hidden="true" class="w3-circle w3-margin-top"></i>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <form class="w3-container">
+          <div class="w3-section">
+
+            <div class="form-group w3-padding">
+              <label class="w3-left"><b>Email</b></label>
+              <%= f.email_field :email, class: 'form-control w3-input w3-border w3-margin-bottom' %>
+            </div>
+
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+
+            <div class="form-group w3-padding">
+              <label class="w3-left"><b>Password</b></label>
+              <i class="w3-left">(leave blank if you don't want to change it)</i><br>
+              <%= f.password_field :password, autocomplete: "off", class: 'form-control w3-input w3-border w3-margin-bottom' %>
+            </div>
+
+            <div class="form-group w3-padding">
+              <label class="w3-left"><b>Password Confirmation</b></label>
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control w3-input w3-border w3-margin-bottom' %>
+            </div>
+
+            <div class="form-group w3-padding">
+              <label class="w3-left"><b>Current Password</b></label>
+              <i class="w3-left">(we need your current password to confirm your changes)</i><br>
+              <%= f.password_field :current_password, autocomplete: "off", class: 'form-control w3-input w3-border w3-margin-bottom' %>
+            </div>
+
+            <div class="form-group w3-padding">
+              <%= f.submit "Update", class: 'w3-button w3-green w3-block w3-section w3-padding' %>
+            </div>
+
+          </div>
+        </form>
       <% end %>
 
-      <div class="form-group">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, autocomplete: "off", class: 'form-control'  %>
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <h2>Cancel my account</h2>
+
+        confirm("Press a button!\nEither OK or Cancel.");
+        <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), class: "w3-button w3-red w3-round-large w3-border-red", data: { confirm:'Are you sure you want to delete?' } , method: :delete %></p>
+
+        <%= link_to "Back", :back %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'  %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "off", class: 'form-control'  %>
-      </div>
-
-      <div class="form-group">
-        <%= f.submit "Update", class: 'btn btn-lg btn-block btn-primary' %>
-      </div>
-    <% end %>
-    <hr>
-
-    <h2>Cancel my account</h2>
-
-    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), class: "btn btn-danger", data: { confirm: "Are you sure? You cannot undo this." }, method: :delete %></p>
-
-    <%= link_to "Back", :back %>
-    <hr>
+    </div>
   </div>
 </div>

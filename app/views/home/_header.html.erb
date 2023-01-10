@@ -19,9 +19,11 @@
         <div class="w3-dropdown-content w3-bar-block w3-card-4">
           <% if current_user.profile == nil %>
             <a href="<%= new_profile_path %>" class="w3-bar-item w3-button">Create Profile</a>
+          <% elsif current_page?(new_profile_path) == true %>
+            <a href="<%= new_profile_path %>" class="w3-bar-item w3-button">Create Profile</a>
           <% else %>
-            <a href="<%= profile_path(current_user.profile) %>" class="w3-bar-item w3-button">View Profile</a>
-            <a href="<%= edit_profile_path(current_user.profile) %>" class="w3-bar-item w3-button">Edit Profile</a>
+            <a href="<%= profile_path(current_user.profile) %>" class="w3-bar-item w3-button w3-padding-large">View Profile</a>
+            <a href="<%= edit_profile_path(current_user.profile) %>" class="w3-bar-item w3-button w3-padding-large">Edit Profile</a>
           <% end %>
         </div>
       </div>
@@ -86,7 +88,9 @@
 
   <% if user_signed_in? %>
     <% if current_user.profile == nil %>
-      <a href="<%= new_profile_path %>" class="w3-bar-item w3-button w3-padding-large">Create Profile</a>
+      <a href="<%= new_profile_path %>" class="w3-bar-item w3-button">Create Profile</a>
+    <% elsif current_page?(new_profile_path) == true %>
+      <a href="<%= new_profile_path %>" class="w3-bar-item w3-button">Create Profile</a>
     <% else %>
       <a href="<%= profile_path(current_user.profile) %>" class="w3-bar-item w3-button w3-padding-large">View Profile</a>
       <a href="<%= edit_profile_path(current_user.profile) %>" class="w3-bar-item w3-button w3-padding-large">Edit Profile</a>
