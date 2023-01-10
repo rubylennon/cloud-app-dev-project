@@ -1,8 +1,4 @@
-/*body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}*/
-/*.w3-bar,h1,button {font-family: "Montserrat", sans-serif}*/
-/*.fa-anchor,.fa-coffee {font-size:200px}*/
-
-/*Application*/
+/* Application */
 
 .fa-anchor {
     font-size: 200px;
@@ -10,6 +6,16 @@
 
 .fa-coffee {
     font-size: 200px;
+    font-size: 200px;
+}
+
+.fa-user-circle-o,
+.fa-key,
+.fa-user-plus,
+.fa-sign-in
+{
+    font-size: 100px;
+    font-size: 100px;
 }
 
 body,h1,h2,h3,h4,h5,h6 {
@@ -97,10 +103,6 @@ tr:last-of-type td:last-of-type {
     /*height: 50px;*/
     color: white;
 }
-
-/*.navbar li {*/
-/*    padding: 0;*/
-/*}*/
 
 .navbar li:hover {
     background-color: #90F3FF;
