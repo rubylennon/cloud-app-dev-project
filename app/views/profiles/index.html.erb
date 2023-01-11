@@ -1,40 +1,38 @@
-<p style="color: green"><%= notice %></p>
-<h1>Profiles</h1>
-<table style="width:100%">
-  <!--  <tr>-->
-  <!--    <th colspan="10">Profiles</th>-->
-  <!--  </tr>-->
-  <tr>
-    <th>Profile ID</th>
-    <th>Screen Name</th>
-    <th>City</th>
-    <th>User ID</th>
-    <th>Created On</th>
-    <th>Last Updated</th>
-    <th>View</th>
-  </tr>
-  <% @profiles.each do |profile| %>
-    <tr>
-      <td>
-        <%= profile.id %>
-      </td>
-      <td>
-        <%= profile.screenname %>
-      </td>
-      <td>
-        <%= profile.city %>
-      </td>
-      <td>
-        <%= profile.user_id %>
-      </td>
-      <td>
-        <%= profile.created_at %>
-      </td>
-      <td>
-        <%= profile.updated_at %>
-      </td>
-      <td>
-        <%= link_to "Show this profile", profile %>
-      </td>
-  <% end %>
-</table>
+<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:1000px" id="band">
+  <h2>User Profiles</h2>
+    <table style="width:100%">
+      <tr>
+        <th>Profile ID</th>
+        <th>Screen Name</th>
+        <th>City</th>
+        <th>User ID</th>
+        <th>Created On</th>
+        <th>Last Updated</th>
+        <th>View</th>
+      </tr>
+      <% @profiles.each do |profile| %>
+        <tr>
+          <td>
+            <%= profile.id %>
+          </td>
+          <td>
+            <%= profile.screenname %>
+          </td>
+          <td>
+            <%= profile.city %>
+          </td>
+          <td>
+            <%= profile.user_id %>
+          </td>
+          <td>
+            <%= profile.created_at %>
+          </td>
+          <td>
+            <%= profile.updated_at %>
+          </td>
+          <td>
+            <%= link_to "Show this profile", profile, class: 'w3-button w3-small w3-purple w3-round-large w3-border-purple' %>
+          </td>
+      <% end %>
+    </table>
+</div>

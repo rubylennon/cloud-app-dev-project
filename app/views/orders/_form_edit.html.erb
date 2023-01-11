@@ -1,24 +1,28 @@
 <!--@Ref: https://www.w3schools.com/w3css/w3css_templates.asp
 Reference Description: W3 Templates for web pages using W3.CSS Bootstrap -->
 <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
-  <h2>Edit Account Details</h2>
+  <h2>Edit Order</h2>
 
   <div class="w3-modal-content w3-card-4" style="max-width:600px">
     <div class="w3-center"><br>
-      <i class="fa fa-user-circle-o" aria-hidden="true" class="w3-circle w3-margin-top"></i>
-
-      <%= form_with(model: user, local: true) do |f| %>
+      <i class="fa fa-shopping-bag" aria-hidden="true" class="w3-circle w3-margin-top"></i>
+      <%= form_with(model: order) do |f| %>
         <form class="w3-container">
           <div class="w3-section">
 
             <div class="form-group w3-padding">
               <label class="w3-left"><b>First Name</b></label>
-              <%= f.text_field :first_name, class: 'form-control w3-input w3-border w3-margin-bottom', :required => true %>
+              <%= f.text_field :first_name, class: 'form-control w3-input w3-border w3-margin-bottom', :required => true%>
             </div>
 
             <div class="form-group w3-padding">
               <label class="w3-left"><b>Last Name</b></label>
-              <%= f.text_field :last_name, class: 'form-control w3-input w3-border w3-margin-bottom', :required => true %>
+              <%= f.text_field :last_name, class: 'form-control w3-input w3-border w3-margin-bottom', :required => true%>
+            </div>
+
+            <div class="form-group w3-padding">
+              <label class="w3-left"><b>Sub Total</b></label>
+              <%= f.text_field :sub_total, class: 'form-control w3-input w3-border w3-margin-bottom', :required => true%>
             </div>
 
             <div class="form-group w3-padding">
@@ -30,7 +34,9 @@ Reference Description: W3 Templates for web pages using W3.CSS Bootstrap -->
       <% end %>
 
       <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-        <%= link_to 'Cancel', user_path(@user.id), class: 'w3-button w3-red w3-round-large w3-border-red', :required => true %>
+        <%= link_to "Show this order", @order %>
+        <br>
+        <%= link_to "Back to orders", orders_path %>
       </div>
 
     </div>

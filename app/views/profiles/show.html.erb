@@ -1,41 +1,45 @@
-<p style="color: green"><%= notice %></p>
+<!--@Ref: https://www.w3schools.com/w3css/w3css_templates.asp
+Reference Description: W3 Templates for web pages using W3.CSS Bootstrap -->
+<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:1000px" id="band">
+  <h2><%= @profile.screenname %>'s Profile</h2>
 
-<link rel="stylesheet" href="">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div class="w3-modal-content w3-card-4" style="max-width:600px">
+    <div class="w3-center"><br>
+      <i class="fa fa-user-circle-o" aria-hidden="true" class="w3-circle w3-margin-top"></i>
 
-<!-- Profile -->
-<div class="w3-card w3-round w3-white">
-  <div class="w3-container">
-    <h1 class="w3-center"><%= @profile.screenname %>'s Profile</h1>
-    <p id="profile" class="w3-center">
-      <%= image_tag("logos/profile.jpg") %>
-    </p>
-    <hr>
-    <p>
-      <i class="fa fa-id-badge fa-fw w3-margin-right w3-text-theme"></i>
-      <%= @profile.screenname %>
-    </p>
-    <p>
-      <i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>
-      <%= @profile.city %>
-    </p>
-    <hr>
+      <form class="w3-container">
+        <div class="w3-section">
 
+          <hr>
+          <p>
+            <i class="fa fa-id-badge fa-fw w3-margin-right w3-text-theme"></i>
+            <%= @profile.screenname  %>
+          </p>
+          <p>
+            <i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>
+            <%= @profile.city %>
+          </p>
+          <hr>
+
+        </div>
+      </form>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <%= link_to "Edit Profile", edit_profile_path(@profile), class: 'w3-left w3-button w3-blue w3-round-large w3-border-blue w3-margin'%>
+        <%= button_to "Destroy Profile", @profile, class: 'w3-right w3-button w3-red w3-round-large w3-border-red w3-margin', method: :delete %>
+      </div>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <%= link_to "Back to profiles", profiles_path, class: 'w3-center' %>
+      </div>
+
+    </div>
   </div>
-</div>
 
-<div>
-  <%= link_to "Edit this profile", edit_profile_path(@profile) %> |
-  <%= link_to "Back to profiles", profiles_path %>
-  <%= button_to "Destroy this profile", @profile, method: :delete %>
+  <br>
+  <h3>User Login Information</h3>
+  <%= render 'profiles/tracking' %>
+  <br>
+  <h3>Activity Log</h3>
+  <%= render 'profiles/activity_log' %>
 </div>
-
-<br>
-<h3>User Login Information</h3>
-<%= render 'profiles/tracking' %>
-<br>
-<h3>Activity Log</h3>
-<%= render 'profiles/activity_log' %>
