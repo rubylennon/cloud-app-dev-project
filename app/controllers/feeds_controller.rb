@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class FeedsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_feed, only: [:show, :edit, :update, :destroy]
+  before_action :set_feed, only: %i[show edit update destroy]
   require 'rake'
 
   # GET /feeds
@@ -11,8 +13,7 @@ class FeedsController < ApplicationController
 
   # GET /feeds/1
   # GET /feeds/1.json
-  def show
-  end
+  def show; end
 
   # GET /feeds/new
   def new
@@ -20,18 +21,15 @@ class FeedsController < ApplicationController
   end
 
   # GET /feeds/1/edit
-  def edit
-  end
+  def edit; end
 
-  def rake_task
-
-  end
+  def rake_task; end
 
   def get_info
-    system "rake sync &"
+    system 'rake sync &'
     Rails.application.load_tasks
     Rake::Task['sync:feeds'].invoke
-    flash[:notice] = "Retrieving and updating feed entries"
+    flash[:notice] = 'Retrieving and updating feed entries'
     redirect_to feeds_path
   end
 
@@ -76,6 +74,7 @@ class FeedsController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_feed
     @feed = Feed.find(params[:id])
@@ -85,5 +84,4 @@ class FeedsController < ApplicationController
   def feed_params
     params.require(:feed).permit(:name, :url, :description)
   end
-
 end

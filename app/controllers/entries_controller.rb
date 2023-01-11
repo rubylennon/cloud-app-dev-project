@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EntriesController < ApplicationController
   load_and_authorize_resource
   before_action :set_feed, only: :index
@@ -11,8 +13,8 @@ class EntriesController < ApplicationController
   end
 
   private
+
   def set_feed
     @feed = Feed.find(params[:id])
   end
-
 end

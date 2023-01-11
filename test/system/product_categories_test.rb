@@ -1,39 +1,41 @@
-require "application_system_test_case"
+# frozen_string_literal: true
+
+require 'application_system_test_case'
 
 class ProductCategoriesTest < ApplicationSystemTestCase
   setup do
     @product_category = product_categories(:one)
   end
 
-  test "visiting the index" do
+  test 'visiting the index' do
     visit product_categories_url
-    assert_selector "h1", text: "Product categories"
+    assert_selector 'h1', text: 'Product categories'
   end
 
-  test "should create product category" do
+  test 'should create product category' do
     visit product_categories_url
-    click_on "New product category"
+    click_on 'New product category'
 
-    click_on "Create Product category"
+    click_on 'Create Product category'
 
-    assert_text "Product category was successfully created"
-    click_on "Back"
+    assert_text 'Product category was successfully created'
+    click_on 'Back'
   end
 
-  test "should update Product category" do
+  test 'should update Product category' do
     visit product_category_url(@product_category)
-    click_on "Edit this product category", match: :first
+    click_on 'Edit this product category', match: :first
 
-    click_on "Update Product category"
+    click_on 'Update Product category'
 
-    assert_text "Product category was successfully updated"
-    click_on "Back"
+    assert_text 'Product category was successfully updated'
+    click_on 'Back'
   end
 
-  test "should destroy Product category" do
+  test 'should destroy Product category' do
     visit product_category_url(@product_category)
-    click_on "Destroy this product category", match: :first
+    click_on 'Destroy this product category', match: :first
 
-    assert_text "Product category was successfully destroyed"
+    assert_text 'Product category was successfully destroyed'
   end
 end

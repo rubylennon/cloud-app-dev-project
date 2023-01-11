@@ -1,5 +1,6 @@
-class ShoppingCart
+# frozen_string_literal: true
 
+class ShoppingCart
   delegate :sub_total, :total, to: :order
 
   def initialize(token, cart_user)
@@ -22,10 +23,10 @@ class ShoppingCart
     product = Product.find(product_id)
 
     order_item = order.items.find_or_initialize_by(
-      product_id: product_id
+      product_id:
     )
 
-    order_item.price  = product.net_price
+    order_item.price = product.net_price
     order_item.quantity = quantity
 
     ActiveRecord::Base.transaction do
@@ -49,19 +50,14 @@ class ShoppingCart
     update_total!
   end
 
-  private
-
   def update_total!
     order.total = (order.sub_total * 0.23) + order.sub_total
     order.save
     update_user!
   end
 
-  private
-
   def update_user!
     order.user_id = @cart_user
     order.save
   end
-
 end

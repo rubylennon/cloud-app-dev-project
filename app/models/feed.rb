@@ -1,6 +1,8 @@
-class Feed < ActiveRecord::Base
-    has_many :entries, dependent: :destroy
+# frozen_string_literal: true
 
-    include PublicActivity::Model
-    tracked owner: Proc.new{ |controller, model| controller.current_user }
+class Feed < ActiveRecord::Base
+  has_many :entries, dependent: :destroy
+
+  include PublicActivity::Model
+  tracked owner: proc { |controller, _model| controller.current_user }
 end

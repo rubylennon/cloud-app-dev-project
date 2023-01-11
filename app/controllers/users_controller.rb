@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # @Ref: https://www.youtube.com/watch?v=8UIG9Ggu9Q4
 class UsersController < ApplicationController
   load_and_authorize_resource
@@ -19,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to user_path(@user.id), notice: 'You successfully updated your profile.'}
+        format.html { redirect_to user_path(@user.id), notice: 'You successfully updated your profile.' }
       else
         format.html { render :edit }
       end
@@ -31,7 +33,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(
       :first_name,
-      :last_name,
+      :last_name
     )
   end
 end

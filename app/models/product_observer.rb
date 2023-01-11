@@ -1,19 +1,20 @@
+# frozen_string_literal: true
+
 class ProductObserver < ActiveRecord::Observer
   require 'logger'
 
   def after_create(product)
-    log = Logger.new(STDOUT)
-    log.info("Product ID " + product.id.to_s + " created")
+    log = Logger.new($stdout)
+    log.info("Product ID #{product.id} created")
   end
 
   def after_delete(product)
-    log = Logger.new(STDOUT)
-    log.info("Product ID " + product.id.to_s + " deleted")
+    log = Logger.new($stdout)
+    log.info("Product ID #{product.id} deleted")
   end
 
   def after_save(product)
-    log = Logger.new(STDOUT)
-    log.info("Product ID " + product.id.to_s + " saved")
+    log = Logger.new($stdout)
+    log.info("Product ID #{product.id} saved")
   end
-
 end

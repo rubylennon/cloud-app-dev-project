@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OrderItemsController < ApplicationController
   load_and_authorize_resource
 
@@ -18,5 +20,4 @@ class OrderItemsController < ApplicationController
     current_cart.remove_item(id: params[:id])
     redirect_to cart_path
   end
-
 end
