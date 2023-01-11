@@ -1,48 +1,48 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Feeds</h1>
-<%= link_to "Update Feeds", my_rake_task_path, :method => 'get' %>
-<%= link_to "New feed", new_feed_path %>
-<table style="width:100%">
-<!--  <tr>-->
-<!--    <th colspan="8">Data Feeds</th>-->
-<!--  </tr>-->
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>URL</th>
-    <th>Description</th>
-    <th>Created At</th>
-    <th>Last Updated</th>
-    <th>Settings</th>
-    <th>Entries</th>
-  </tr>
-  <% @feeds.each do |feed| %>
+<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:1500px" id="band">
+  <h2>Data Feeds</h2>
+  <%= link_to "Update Feeds", my_rake_task_path, :method => 'get', class: 'w3-left w3-button w3-red w3-round-large w3-border-red w3-margin' %>
+  <%= link_to "New feed", new_feed_path, class: 'w3-left w3-button w3-blue w3-round-large w3-border-blue w3-margin' %>
+  <table style="width:100%">
+  <!--  <tr>-->
+  <!--    <th colspan="8">Data Feeds</th>-->
+  <!--  </tr>-->
     <tr>
-      <td>
-        <%= feed.id %>
-      </td>
-      <td>
-        <%= feed.name %>
-      </td>
-      <td>
-        <%= feed.url %>
-      </td>
-      <td>
-        <%= feed.description %>
-      </td>
-      <td>
-        <%= feed.created_at %>
-      </td>
-      <td>
-        <%= feed.updated_at %>
-      </td>
-      <td>
-        <%= link_to "Feed Settings", feed %>
-      </td>
-      <td>
-        <%= link_to "Feed Entries List", entries_path(feed.id) %>
-      </td>
+      <th>Feed ID</th>
+      <th>Name</th>
+      <th>URL</th>
+      <th>Description</th>
+      <th>Created At</th>
+      <th>Last Updated</th>
+      <th>Settings</th>
+      <th>Entries</th>
     </tr>
-  <% end %>
-</table>
+    <% @feeds.each do |feed| %>
+      <tr>
+        <td>
+          <%= feed.id %>
+        </td>
+        <td>
+          <%= feed.name %>
+        </td>
+        <td>
+          <%= feed.url %>
+        </td>
+        <td>
+          <%= feed.description %>
+        </td>
+        <td>
+          <%= feed.created_at %>
+        </td>
+        <td>
+          <%= feed.updated_at %>
+        </td>
+        <td>
+          <%= link_to "Feed Settings", feed, class: 'w3-button w3-small w3-green w3-round-large w3-border-green'%>
+        </td>
+        <td>
+          <%= link_to "Feed Entries List", entries_path(feed.id), class: 'w3-button w3-small w3-purple w3-round-large w3-border-purple' %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -24,6 +24,7 @@
           <% else %>
             <a href="<%= profile_path(current_user.profile) %>" class="w3-bar-item w3-button w3-padding-large">View Profile</a>
             <a href="<%= edit_profile_path(current_user.profile) %>" class="w3-bar-item w3-button w3-padding-large">Edit Profile</a>
+            <a href="<%= profiles_url %>" class="w3-bar-item w3-button w3-padding-large">All Profiles</a>
           <% end %>
         </div>
       </div>

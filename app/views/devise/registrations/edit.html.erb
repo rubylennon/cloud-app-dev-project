@@ -48,10 +48,7 @@ Reference Description: W3 Templates for web pages using W3.CSS Bootstrap -->
 
       <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
         <h2>Cancel my account</h2>
-
-        confirm("Press a button!\nEither OK or Cancel.");
         <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), class: "w3-button w3-red w3-round-large w3-border-red", data: { confirm:'Are you sure you want to delete?' } , method: :delete %></p>
-
         <%= link_to "Back", :back %>
       </div>
 

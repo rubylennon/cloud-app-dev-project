@@ -1,10 +1,46 @@
-<p style="color: green"><%= notice %></p>
+<!--@Ref: https://www.w3schools.com/w3css/w3css_templates.asp
+Reference Description: W3 Templates for web pages using W3.CSS Bootstrap -->
+<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:1000px" id="band">
+  <h2>Feed Details</h2>
 
-<%= render @feed %>
+  <div class="w3-modal-content w3-card-4" style="max-width:600px">
+    <div class="w3-center"><br>
+      <i class="fa fa-rss" aria-hidden="true" class="w3-circle w3-margin-top"></i>
 
-<div>
-  <%= link_to "Edit this feed", edit_feed_path(@feed) %> |
-  <%= link_to "Back to feeds", feeds_path %>
+      <form class="w3-container">
+        <div class="w3-section">
 
-  <%= button_to "Destroy this feed", @feed, method: :delete %>
+          <hr>
+          <p>
+            <label><b>Feed ID:</b></label>
+            <%= @feed.id %>
+          </p>
+          <p>
+            <label><b>Name:</b></label>
+            <%= @feed.name %>
+          </p>
+          <p>
+            <label><b>URL:</b></label>
+            <%= @feed.url %>
+          </p>
+          <p>
+            <label><b>Description:</b></label>
+            <%= @feed.description %>
+          </p>
+          <hr>
+
+        </div>
+      </form>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <%= link_to "Edit", edit_feed_path(@feed), class: 'w3-left w3-button w3-blue w3-round-large w3-border-blue w3-margin' %>
+        <%= button_to "Delete", @feed, class: 'w3-right w3-button w3-red w3-round-large w3-border-red w3-margin', method: :delete %>
+      </div>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <%= link_to "Back to feeds", feeds_path %>
+      </div>
+
+    </div>
+  </div>
 </div>
