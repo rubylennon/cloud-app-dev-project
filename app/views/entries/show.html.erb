@@ -7,6 +7,6 @@
   <hr>
 
   <div id="entry">
-    <%= @entry.valid_content.html_safe %>
+    <%= sanitize @entry.valid_content.html_safe %>
   </div>
 </div>
