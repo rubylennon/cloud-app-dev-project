@@ -9,6 +9,6 @@ class Product < ApplicationRecord
   validates :product_description, presence: true
   validates :net_price, presence: true
 
-  has_many :product_categories
+  has_many :product_categories, dependent: nil
   has_many :categories, through: :product_categories
 end

@@ -2,7 +2,7 @@
 
 # user profile order model
 class Profile < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, dependent: nil
   validates :screenname, presence: true
   validates :city, presence: true
 
