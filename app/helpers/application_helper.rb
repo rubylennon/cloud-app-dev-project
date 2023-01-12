@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# helper method for application view
 module ApplicationHelper
   def alert_class_by_type(alert_type)
     case alert_type.to_sym

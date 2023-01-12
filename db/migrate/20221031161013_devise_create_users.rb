@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# migration file used to create the devise users database model
 class DeviseCreateUsers < ActiveRecord::Migration[7.0]
   def change
     create_table :users do |t|

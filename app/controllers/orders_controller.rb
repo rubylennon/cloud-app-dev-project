@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# orders controller class for communicating between views and model
 class OrdersController < ApplicationController
   load_and_authorize_resource
   before_action :set_order, only: %i[show edit update destroy]
@@ -33,10 +34,6 @@ class OrdersController < ApplicationController
   end
 
   private
-
-  def order_params
-    params.require(:order).permit(:first_name, :last_name)
-  end
 
   # PATCH/PUT /orders/1 or /orders/1.json
   def update

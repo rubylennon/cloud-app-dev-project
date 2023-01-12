@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# users controller class for communicating between views and model
 # @Ref: https://www.youtube.com/watch?v=8UIG9Ggu9Q4
 class UsersController < ApplicationController
   load_and_authorize_resource

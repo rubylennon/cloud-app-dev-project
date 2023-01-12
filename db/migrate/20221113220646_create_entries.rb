@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# migration file used to create the entries database model
 class CreateEntries < ActiveRecord::Migration[7.0]
   def change
     create_table :entries do |t|

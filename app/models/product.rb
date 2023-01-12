@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# product model
 class Product < ApplicationRecord
   include PublicActivity::Model
   tracked owner: proc { |controller, _model| controller.current_user }

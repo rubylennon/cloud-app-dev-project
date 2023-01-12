@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# decorator class for entry model
 class EntryDecorator < Draper::Decorator
   delegate_all
 

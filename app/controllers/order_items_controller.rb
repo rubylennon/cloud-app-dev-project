@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# order items controller class for communicating between views and model
 class OrderItemsController < ApplicationController
   load_and_authorize_resource
 

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# migration file used to create the orders database model
 class CreateOrders < ActiveRecord::Migration[7.0]
   def change
     create_table :orders do |t|

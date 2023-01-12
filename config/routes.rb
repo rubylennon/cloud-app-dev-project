@@ -39,5 +39,5 @@ Rails.application.routes.draw do
   get '/cart/checkout', to: 'orders#new', as: :checkout
   patch '/cart/checkout', to: 'orders#create'
 
-  get 'rake_task', to: 'feeds#get_info', as: 'my_rake_task'
+  get 'rake_task', to: 'feeds#datafeed', as: 'my_rake_task'
 end

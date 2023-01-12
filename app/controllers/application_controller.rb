@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# application controller class containing shopping cart functionality
 class ApplicationController < ActionController::Base
   include PublicActivity::StoreController
 

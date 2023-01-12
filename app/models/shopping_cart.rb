@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# shopping cart custom gem which contains the shopping cart
+# functionality for the application
 class ShoppingCart
   delegate :sub_total, :total, to: :order
 

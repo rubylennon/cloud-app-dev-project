@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# observer model for the product category model
 class ProductCategoryObserver < ActiveRecord::Observer
   require 'logger'
 

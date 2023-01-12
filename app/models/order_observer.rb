@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# observer model for the order model
 class OrderObserver < ActiveRecord::Observer
   require 'logger'
 

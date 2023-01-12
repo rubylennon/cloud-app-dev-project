@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# decorator class for product category model
 class ProductCategoryDecorator < Draper::Decorator
   delegate_all
 

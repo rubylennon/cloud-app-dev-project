@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# product categories controller class for communicating between views and model
 class ProductCategoriesController < ApplicationController
   load_and_authorize_resource
   before_action :set_product_category, only: %i[show edit update destroy]
@@ -23,7 +24,6 @@ class ProductCategoriesController < ApplicationController
   # POST /product_categories or /product_categories.json
   def create
     @product_category = ProductCategory.new(product_category_params)
-
     respond_to do |format|
       if @product_category.save
         format.html do

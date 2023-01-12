@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# feeds controller class for communicating between views and model
 class FeedsController < ApplicationController
   load_and_authorize_resource
   before_action :set_feed, only: %i[show edit update destroy]
@@ -25,7 +26,7 @@ class FeedsController < ApplicationController
 
   def rake_task; end
 
-  def get_info
+  def datafeed
     system 'rake sync &'
     Rails.application.load_tasks
     Rake::Task['sync:feeds'].invoke
