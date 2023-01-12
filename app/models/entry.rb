@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 # entry model
-class Entry < ActiveRecord::Base
+class Entry < ApplicationRecord
   belongs_to :feed
 end

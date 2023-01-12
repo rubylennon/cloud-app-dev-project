@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # feed model
-class Feed < ActiveRecord::Base
+class Feed < ApplicationRecord
   has_many :entries, dependent: :destroy
 
   include PublicActivity::Model
