@@ -1,10 +1,17 @@
 inherit_from: .rubocop_todo.yml
-require: rubocop-rails
+
+Rails:
+  Enabled: true
 
 AllCops:
   NewCops: enable
   Exclude:
-    - 'db/**/*'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - 'db/migrate/*'
+    - 'db/schema.rb'
+    - 'db/seeds.rb'
+    - 'bin/*'
 
 Gemspec/DeprecatedAttributeAssignment: # new in 1.30
   Enabled: true
