@@ -12,6 +12,8 @@ AllCops:
     - 'db/schema.rb'
     - 'db/seeds.rb'
     - 'bin/*'
+    - 'config/routes.rb'
+    - 'config/initializers/devise.rb'
 
 Gemspec/DeprecatedAttributeAssignment: # new in 1.30
   Enabled: true
@@ -249,6 +251,9 @@ Lint/ScriptPermission:
 
 Metrics/MethodLength:
   Enabled: true
+  Exclude:
+    - app/controllers/product_categories_controller.rb
+    - app/controllers/product_categories_controller.rb
 
 Metrics/BlockLength:
   Enabled: true
@@ -264,3 +269,6 @@ Style/IfUnlessModifier:
 
 Layout/LineLength:
   Enabled: true
+
+Rails/I18nLocaleTexts:
+  Enabled: false

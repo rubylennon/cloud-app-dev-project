@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   resources :product_categories
+
   resources :profiles do
     member do
       resources :activities

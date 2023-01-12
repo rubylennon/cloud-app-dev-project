@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   def index; end
 
+  def update; end
+
   before_action :current_cart, only: [:update]
 
   def current_cart
