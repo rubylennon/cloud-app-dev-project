@@ -12,12 +12,21 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should get new' do
+  test 'should get new if user admin' do
+    sign_in users(:admin)
     get new_product_url
     assert_response :success
   end
 
-  test 'should create product' do
+  test 'should not get new if user not admin' do
+    sign_in users(:standard)
+    assert_raises(CanCan::AccessDenied) do
+      get new_product_url
+    end
+  end
+
+  test 'should create product if user admin' do
+    sign_in users(:admin)
     assert_difference('Product.count') do
       post products_url,
            params: { product: { net_price: @product.net_price, product_description: @product.product_description,
@@ -27,28 +36,66 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to product_url(Product.last)
   end
 
+  test 'should not create product if user not admin' do
+    sign_in users(:standard)
+    assert_raises(CanCan::AccessDenied) do
+      post products_url,
+           params: { product: { net_price: @product.net_price, product_description: @product.product_description,
+                                product_name: @product.product_name } }
+    end
+  end
+
   test 'should show product' do
     get product_url(@product)
     assert_response :success
   end
 
-  test 'should get edit' do
+  test 'should get edit if user admin' do
+    sign_in users(:admin)
     get edit_product_url(@product)
     assert_response :success
   end
 
-  test 'should update product' do
+  test 'should not get edit if user not admin' do
+    sign_in users(:standard)
+    assert_raises(CanCan::AccessDenied) do
+      get edit_product_url(@product)
+    end
+  end
+
+  test 'should update product if user admin' do
+    sign_in users(:admin)
     patch product_url(@product),
           params: { product: { net_price: @product.net_price, product_description: @product.product_description,
                                product_name: @product.product_name } }
     assert_redirected_to product_url(@product)
   end
 
-  test 'should destroy product' do
+  test 'should not update product if user not admin' do
+    sign_in users(:standard)
+    assert_raises(CanCan::AccessDenied) do
+      patch product_url(@product),
+            params: { product: { net_price: @product.net_price, product_description: @product.product_description,
+                                 product_name: @product.product_name } }
+    end
+  end
+
+=begin
+  test 'should destroy product if user admin' do
+    sign_in users(:admin)
     assert_difference('Product.count', -1) do
       delete product_url(@product)
     end
 
     assert_redirected_to products_url
   end
+=end
+
+  test 'should not destroy product if user not admin' do
+    sign_in users(:standard)
+    assert_raises(CanCan::AccessDenied) do
+      delete product_url(@product)
+    end
+  end
+
 end

@@ -4,6 +4,7 @@
 class OrdersController < ApplicationController
   load_and_authorize_resource
   before_action :set_order, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /orders or /orders.json
   def index
@@ -33,8 +34,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  private
-
   # PATCH/PUT /orders/1 or /orders/1.json
   def update
     respond_to do |format|
@@ -57,6 +56,8 @@ class OrdersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_order
