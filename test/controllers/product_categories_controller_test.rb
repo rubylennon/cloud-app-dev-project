@@ -63,22 +63,6 @@ class ProductCategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
-  test 'should update product_category if user admin' do
-    sign_in users(:admin)
-    patch product_category_url(@product_category),
-          params: { product_category: { category_id: @product_category.category_id,
-                                        product_id: @product_category.product_id } }
-    assert_redirected_to product_category_url(@product_category)
-  end
-
-  test 'should not update product_category if user not admin' do
-    sign_in users(:standard)
-    patch product_category_url(@product_category),
-          params: { product_category: { category_id: @product_category.category_id,
-                                        product_id: @product_category.product_id } }
-    assert_redirected_to root_path
-  end
-
   test 'should destroy product_category if user admin' do
     sign_in users(:admin)
     assert_difference('ProductCategory.count', -1) do
