@@ -19,8 +19,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get edit if logged in' do
-    user = users(:admin)
-    get edit_user_path(user.id)
+    get edit_user_path
     assert_response :success
   end
 end

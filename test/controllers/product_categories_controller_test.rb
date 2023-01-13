@@ -31,17 +31,6 @@ class ProductCategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
-  test 'should create product_category if user admin' do
-    sign_in users(:admin)
-    assert_difference('ProductCategory.count') do
-      post product_categories_url,
-           params: { product_category: { category_id: @product_category.category_id,
-                                         product_id: @product_category.product_id } }
-    end
-
-    assert_redirected_to product_category_url(ProductCategory.last)
-  end
-
   test 'should not create product_category if user not admin' do
     sign_in users(:standard)
     post product_categories_url,

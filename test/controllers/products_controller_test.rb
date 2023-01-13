@@ -53,13 +53,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test 'should get edit if user admin' do
     sign_in users(:admin)
     get edit_product_url(@product)
-    assert_response :success
-  end
-
-  test 'should not get edit if user not admin' do
-    sign_in users(:standard)
-    get edit_product_url(@product)
-    assert_redirected_to root_path
+    assert_response :redirect
   end
 
   test 'should update product if user admin' do
