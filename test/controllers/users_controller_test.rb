@@ -23,5 +23,4 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get edit_user_path(user.id)
     assert_response :success
   end
-
 end

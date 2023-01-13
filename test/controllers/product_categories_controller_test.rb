@@ -36,7 +36,9 @@ class ProductCategoriesControllerTest < ActionDispatch::IntegrationTest
   test 'should create product_category if user admin' do
     sign_in users(:admin)
     assert_difference('ProductCategory.count') do
-      post product_categories_url, params: { product_category: { category_id: @product_category.category_id, product_id: @product_category.product_id } }
+      post product_categories_url,
+           params: { product_category: { category_id: @product_category.category_id,
+                                         product_id: @product_category.product_id } }
     end
 
     assert_redirected_to product_category_url(ProductCategory.last)
@@ -45,7 +47,9 @@ class ProductCategoriesControllerTest < ActionDispatch::IntegrationTest
   test 'should not create product_category if user not admin' do
     sign_in users(:standard)
     assert_raises(CanCan::AccessDenied) do
-      post product_categories_url, params: { product_category: { category_id: @product_category.category_id, product_id: @product_category.product_id } }
+      post product_categories_url,
+           params: { product_category: { category_id: @product_category.category_id,
+                                         product_id: @product_category.product_id } }
     end
   end
 
@@ -77,14 +81,18 @@ class ProductCategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should update product_category if user admin' do
     sign_in users(:admin)
-    patch product_category_url(@product_category), params: { product_category: { category_id: @product_category.category_id, product_id: @product_category.product_id } }
+    patch product_category_url(@product_category),
+          params: { product_category: { category_id: @product_category.category_id,
+                                        product_id: @product_category.product_id } }
     assert_redirected_to product_category_url(@product_category)
   end
 
   test 'should not update product_category if user not admin' do
     sign_in users(:standard)
     assert_raises(CanCan::AccessDenied) do
-      patch product_category_url(@product_category), params: { product_category: { category_id: @product_category.category_id, product_id: @product_category.product_id } }
+      patch product_category_url(@product_category),
+            params: { product_category: { category_id: @product_category.category_id,
+                                          product_id: @product_category.product_id } }
     end
   end
 
