@@ -6,6 +6,8 @@ class Profile < ApplicationRecord
   validates :screenname, presence: true
   validates :city, presence: true
 
-  include PublicActivity::Model
-  tracked owner: proc { |controller, _model| controller.current_user }
+  if ENV['RAILS_ENV'].to_s != 'test'
+    include PublicActivity::Model
+    tracked owner: proc { |controller, _model| controller.current_user }
+  end
 end
