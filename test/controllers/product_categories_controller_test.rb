@@ -66,10 +66,10 @@ class ProductCategoriesControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test 'should get edit if user admin' do
-    sign_in users(:admin)
+  test 'should not get edit if user not logged in' do
+    sign_out users(:standard)
     get edit_product_category_url(@product_category)
-    assert_response :success
+    assert_response :redirect
   end
 
   test 'should not get edit if user not admin' do

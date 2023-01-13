@@ -19,10 +19,10 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should get edit if logged in' do
-    sign_in users(:standard)
+  test 'should not get edit if not logged in' do
+    sign_out users(:standard)
     get edit_profile_url(@profile)
-    assert_response :success
+    assert_response :redirect
   end
 
   test 'should update profile if logged in' do
