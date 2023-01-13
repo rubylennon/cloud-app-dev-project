@@ -72,16 +72,14 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-=begin
-  test 'should destroy category if user admin' do
-    sign_in users(:admin)
-    assert_difference('Category.count', -1) do
-      delete category_url(@category)
-    end
-
-    assert_redirected_to categories_url
-  end
-=end
+  #   test 'should destroy category if user admin' do
+  #     sign_in users(:admin)
+  #     assert_difference('Category.count', -1) do
+  #       delete category_url(@category)
+  #     end
+  #
+  #     assert_redirected_to categories_url
+  #   end
 
   test 'should not destroy category if user not admin' do
     sign_in users(:standard)

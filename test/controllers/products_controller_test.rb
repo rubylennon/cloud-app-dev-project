@@ -80,22 +80,10 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-=begin
-  test 'should destroy product if user admin' do
-    sign_in users(:admin)
-    assert_difference('Product.count', -1) do
-      delete product_url(@product)
-    end
-
-    assert_redirected_to products_url
-  end
-=end
-
   test 'should not destroy product if user not admin' do
     sign_in users(:standard)
     assert_raises(CanCan::AccessDenied) do
       delete product_url(@product)
     end
   end
-
 end

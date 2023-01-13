@@ -9,13 +9,13 @@ class EntriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
-    get entries_index_path, params: {"id"=>@feed.id}
+    get entries_index_path, params: { 'id' => @feed.id }
     assert_response :success
   end
 
   test 'should get show' do
     @entries = @feed.entries.order('published desc')
-    get entries_show_path, params: {"id"=>@entry.id}
+    get entries_show_path, params: { 'id' => @entry.id }
     assert_response :success
   end
 end

@@ -19,18 +19,6 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-=begin
-  test 'should create profile if logged in' do
-    sign_in users(:admin)
-    user = users(:admin)
-    assert_difference('Profile.count') do
-      post profiles_url, params: { profile: { city: @profile.city, screenname: @profile.screenname, user_id: user.id } }
-    end
-
-    assert_redirected_to profile_url(Profile.last)
-  end
-=end
-
   test 'should show profile if logged in' do
     sign_in users(:standard)
     get profile_url(@profile)
