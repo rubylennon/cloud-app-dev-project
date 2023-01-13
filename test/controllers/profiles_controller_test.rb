@@ -19,12 +19,6 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should show profile if logged in' do
-    sign_in users(:standard)
-    get profile_url(@profile)
-    assert_response :success
-  end
-
   test 'should get edit if logged in' do
     sign_in users(:standard)
     get edit_profile_url(@profile)

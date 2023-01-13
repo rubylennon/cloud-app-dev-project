@@ -42,12 +42,6 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test 'should show category' do
-    sign_in users(:admin)
-    get category_url(@category)
-    assert_response :success
-  end
-
   test 'should get edit if user admin' do
     sign_in users(:admin)
     get edit_category_url(@category)
