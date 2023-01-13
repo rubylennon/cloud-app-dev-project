@@ -18,8 +18,8 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     @category = Category.new
-    rescue CanCan::AccessDenied
-      redirect_to '#index'
+  rescue CanCan::AccessDenied
+    redirect_to '#index'
   end
 
   # GET /categories/1/edit
