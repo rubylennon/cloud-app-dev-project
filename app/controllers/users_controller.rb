@@ -4,7 +4,7 @@
 # @Ref: https://www.youtube.com/watch?v=8UIG9Ggu9Q4
 class UsersController < ApplicationController
   load_and_authorize_resource
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!
 
   def index
     @users = User.all

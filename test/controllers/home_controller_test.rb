@@ -7,4 +7,9 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     get root_path
     assert_response :success
   end
+
+  test 'should get about' do
+    get home_about_path
+    assert_response :success
+  end
 end

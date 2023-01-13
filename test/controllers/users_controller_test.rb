@@ -3,18 +3,25 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  test 'should get index' do
+  setup do
+    sign_in users(:admin)
+  end
+
+  test 'should get index if logged in' do
     get users_path
     assert_response :success
   end
 
-  test 'should get show' do
-    get user_path
+  test 'should get show if logged in' do
+    user = users(:admin)
+    get user_path(user.id)
     assert_response :success
   end
 
-  test 'should get edit' do
-    get edit_user_path
+  test 'should get edit if logged in' do
+    user = users(:admin)
+    get edit_user_path(user.id)
     assert_response :success
   end
+
 end

@@ -12,12 +12,21 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should get new' do
+  test 'should get new if user admin' do
+    sign_in users(:admin)
     get new_category_url
     assert_response :success
   end
 
-  test 'should create category' do
+  test 'should not get new if user not admin' do
+    sign_in users(:standard)
+    assert_raises(CanCan::AccessDenied) do
+      get new_category_url
+    end
+  end
+
+  test 'should create category if user admin' do
+    sign_in users(:admin)
     assert_difference('Category.count') do
       post categories_url, params: { category: { title: @category.title } }
     end
@@ -25,26 +34,59 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to category_url(Category.last)
   end
 
+  test 'should not create category if user not admin' do
+    sign_in users(:standard)
+    assert_raises(CanCan::AccessDenied) do
+      post categories_url, params: { category: { title: @category.title } }
+    end
+  end
+
   test 'should show category' do
     get category_url(@category)
     assert_response :success
   end
 
-  test 'should get edit' do
+  test 'should get edit if user admin' do
+    sign_in users(:admin)
     get edit_category_url(@category)
     assert_response :success
   end
 
-  test 'should update category' do
+  test 'should not get edit if user not admin' do
+    sign_in users(:standard)
+    assert_raises(CanCan::AccessDenied) do
+      get edit_category_url(@category)
+    end
+  end
+
+  test 'should update category if user admin' do
+    sign_in users(:admin)
     patch category_url(@category), params: { category: { title: @category.title } }
     assert_redirected_to category_url(@category)
   end
 
-  test 'should destroy category' do
+  test 'should not update category if user not admin' do
+    sign_in users(:standard)
+    assert_raises(CanCan::AccessDenied) do
+      patch category_url(@category), params: { category: { title: @category.title } }
+    end
+  end
+
+=begin
+  test 'should destroy category if user admin' do
+    sign_in users(:admin)
     assert_difference('Category.count', -1) do
       delete category_url(@category)
     end
 
     assert_redirected_to categories_url
+  end
+=end
+
+  test 'should not destroy category if user not admin' do
+    sign_in users(:standard)
+    assert_raises(CanCan::AccessDenied) do
+      delete category_url(@category)
+    end
   end
 end

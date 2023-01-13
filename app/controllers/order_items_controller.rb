@@ -3,6 +3,7 @@
 # order items controller class for communicating between views and model
 class OrderItemsController < ApplicationController
   load_and_authorize_resource
+  before_action :authenticate_user!
 
   def index
     @items = current_cart.order.items
