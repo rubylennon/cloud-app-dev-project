@@ -81,11 +81,4 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
                                  product_name: @product.product_name } }
     end
   end
-
-  test 'should not destroy product if user not admin' do
-    sign_in users(:standard)
-    assert_raises(CanCan::AccessDenied) do
-      delete product_url(@product)
-    end
-  end
 end

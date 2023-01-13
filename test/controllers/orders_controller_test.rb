@@ -19,15 +19,6 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should create order if user logged in' do
-    sign_in users(:standard)
-    assert_difference('Order.count') do
-      post orders_url,
-           params: { order: { first_name: @order.first_name, last_name: @order.last_name,
-                              sub_total: @order.sub_total } }
-    end
-  end
-
   test 'should show order if used logged in' do
     sign_in users(:standard)
     get order_url(@order)

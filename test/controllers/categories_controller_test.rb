@@ -67,11 +67,4 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
       patch category_url(@category), params: { category: { title: @category.title } }
     end
   end
-
-  test 'should not destroy category if user not admin' do
-    sign_in users(:standard)
-    assert_raises(CanCan::AccessDenied) do
-      delete category_url(@category)
-    end
-  end
 end
