@@ -13,7 +13,7 @@ class OrderTest < ActiveSupport::TestCase
 
   test 'invalid without sub_total' do
     order = Order.new(first_name: orders(:one).first_name, last_name: orders(:one).last_name,
-                      sub_total: "", token: orders(:one).token,
+                      sub_total: '', token: orders(:one).token,
                       status: orders(:one).status, total: orders(:one).total,
                       user_id: orders(:one).user_id)
     assert_not order.save

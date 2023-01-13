@@ -10,7 +10,7 @@ class OrderItemTest < ActiveSupport::TestCase
   end
 
   test 'invalid without quantity' do
-    order_item = OrderItem.new(quantity: "", price: order_items(:one).price,
+    order_item = OrderItem.new(quantity: '', price: order_items(:one).price,
                                order_id: order_items(:one).order_id, product_id: order_items(:one).product_id)
     assert_not order_item.save
   end
