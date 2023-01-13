@@ -4,7 +4,7 @@ require 'test_helper'
 
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @category = categories(:one)
+    @category = categories(:two)
   end
 
   test 'should get index' do
