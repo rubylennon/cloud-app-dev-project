@@ -41,7 +41,6 @@ class FeedsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-
   test 'should show feed' do
     get feed_url(@feed)
     assert_response :success
