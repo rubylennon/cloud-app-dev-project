@@ -8,7 +8,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index if user logged in' do
-    sign_in users(:standard)
+    sign_in users(:admin)
     get orders_url
     assert_response :success
   end
