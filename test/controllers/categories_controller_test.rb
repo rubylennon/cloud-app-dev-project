@@ -3,10 +3,6 @@
 require 'test_helper'
 
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @category = categories(:one)
-  end
-
   test 'should get index' do
     sign_in users(:admin)
     get categories_url
