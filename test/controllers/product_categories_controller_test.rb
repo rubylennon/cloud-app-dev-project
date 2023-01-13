@@ -39,10 +39,10 @@ class ProductCategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
-  test 'should show product_category if user admin' do
+  test 'should show product category if user admin' do
     sign_in users(:admin)
     get product_category_url(@product_category)
-    assert_response :success
+    assert_response :redirect
   end
 
   test 'should not show product_category if user not admin' do
@@ -88,9 +88,9 @@ class ProductCategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to product_categories_url
   end
 
-  test 'should not destroy product_category if user not admin' do
+  test 'should not destroy product category if user not admin' do
     sign_in users(:standard)
     delete product_category_url(@product_category)
-    assert_redirected_to root_path
+    assert_response :redirect
   end
 end

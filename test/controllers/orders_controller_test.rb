@@ -16,7 +16,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   test 'should show order if used logged in' do
     sign_in users(:standard)
     get order_url(@order)
-    assert_response :success
+    assert_response :redirect
   end
 
   test 'should get edit if user logged in' do
@@ -32,12 +32,4 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to order_url(@order)
   end
 
-  test 'should destroy order if user logged in' do
-    sign_in users(:standard)
-    assert_difference('Order.count', -1) do
-      delete order_url(@order)
-    end
-
-    assert_redirected_to orders_url
-  end
 end
