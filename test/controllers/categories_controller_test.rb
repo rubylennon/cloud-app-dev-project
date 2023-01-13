@@ -14,5 +14,4 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     get new_category_url
     assert_response :redirect
   end
-
 end

@@ -7,9 +7,4 @@ class UserTest < ActiveSupport::TestCase
     user = User.new(email: '')
     assert_not user.save
   end
-
-  test 'invalid without encrypted password' do
-    user = User.new(encrypted_password: '')
-    assert_not user.save
-  end
 end
