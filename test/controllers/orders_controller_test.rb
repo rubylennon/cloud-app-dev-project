@@ -13,10 +13,10 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should show order if used logged in' do
+  test 'should show order if user logged in' do
     sign_in users(:standard)
     get order_url(@order)
-    assert_response :redirect
+    assert_response :success
   end
 
   test 'should get edit if user logged in' do
@@ -31,5 +31,4 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
           params: { order: { first_name: @order.first_name, last_name: @order.last_name, sub_total: @order.sub_total } }
     assert_redirected_to order_url(@order)
   end
-
 end
