@@ -8,6 +8,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
+    sign_in users(:admin)
     get categories_url
     assert_response :success
   end
@@ -42,6 +43,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should show category' do
+    sign_in users(:admin)
     get category_url(@category)
     assert_response :success
   end

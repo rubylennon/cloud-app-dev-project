@@ -8,6 +8,7 @@ class FeedsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
+    sign_in users(:admin)
     get feeds_url
     assert_response :success
   end
@@ -42,6 +43,7 @@ class FeedsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should show feed' do
+    sign_in users(:admin)
     get feed_url(@feed)
     assert_response :success
   end

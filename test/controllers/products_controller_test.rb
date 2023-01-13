@@ -8,6 +8,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
+    sign_in users(:admin)
     get products_url
     assert_response :success
   end
@@ -46,6 +47,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should show product' do
+    sign_in users(:admin)
     get product_url(@product)
     assert_response :success
   end
