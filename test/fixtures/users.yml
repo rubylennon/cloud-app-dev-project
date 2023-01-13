@@ -17,3 +17,10 @@ standard:
   admin: false
   first_name: first2
   last_name: last2
+
+one:
+  id: 3
+  email: testemail3@example.com
+  admin: false
+  first_name: first3
+  last_name: last3
