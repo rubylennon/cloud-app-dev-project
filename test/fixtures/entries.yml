@@ -1,23 +1,23 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 3
+  id: 1
   title: MyString
   published: 2022-11-13 22:06:46
   content: MyText
   url: MyString
   author: MyString
-  feed_id: 5
+  feed_id: 1
   description: MyString
   image: MyString
 
 two:
-  id: 4
+  id: 2
   title: MyString
   published: 2022-11-13 22:06:46
   content: MyText
   url: MyString
   author: MyString
-  feed_id: 6
+  feed_id: 1
   description: MyString
   image: MyString
