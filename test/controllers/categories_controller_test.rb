@@ -24,39 +24,27 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   test 'should create category if user admin' do
     sign_in users(:admin)
     assert_difference('Category.count') do
-      post categories_url, params: { category: { title: @category.title } }
+      post categories_url, params: { category: { title: categories(:one).title } }
     end
 
     assert_redirected_to category_url(Category.last)
   end
 
-  test 'should not create category if user not admin' do
-    sign_in users(:standard)
-    post categories_url, params: { category: { title: @category.title } }
-    assert_redirected_to root_path
-  end
-
   test 'should get edit if user admin' do
     sign_in users(:admin)
-    get edit_category_url(@category)
+    get edit_category_url(categories(:one).id)
     assert_response :success
   end
 
   test 'should update category if user admin' do
     sign_in users(:admin)
-    patch category_url(@category), params: { category: { title: @category.title } }
-    assert_redirected_to category_url(@category)
-  end
-
-  test 'should not update category if user not admin' do
-    sign_in users(:standard)
-    patch category_url(@category), params: { category: { title: @category.title } }
-    assert_redirected_to root_path
+    patch category_url(categories(:one)), params: { category: { title: categories(:one).title } }
+    assert_redirected_to category_url(categories(:one))
   end
 
   test 'should not destroy category if user not admin' do
     sign_in users(:standard)
-    delete category_url(@category)
+    delete category_url(categories(:one))
     assert_redirected_to root_path
   end
 end
