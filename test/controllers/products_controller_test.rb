@@ -21,9 +21,8 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should not get new if user not admin' do
     sign_in users(:standard)
-    assert_raises(CanCan::AccessDenied) do
-      get new_product_url
-    end
+    get new_product_url
+    assert_redirected_to root_path
   end
 
   test 'should create product if user admin' do
@@ -39,11 +38,10 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should not create product if user not admin' do
     sign_in users(:standard)
-    assert_raises(CanCan::AccessDenied) do
-      post products_url,
-           params: { product: { net_price: @product.net_price, product_description: @product.product_description,
-                                product_name: @product.product_name } }
-    end
+    post products_url,
+         params: { product: { net_price: @product.net_price, product_description: @product.product_description,
+                              product_name: @product.product_name } }
+    assert_redirected_to root_path
   end
 
   test 'should show product' do
@@ -60,9 +58,8 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should not get edit if user not admin' do
     sign_in users(:standard)
-    assert_raises(CanCan::AccessDenied) do
-      get edit_product_url(@product)
-    end
+    get edit_product_url(@product)
+    assert_redirected_to root_path
   end
 
   test 'should update product if user admin' do
@@ -75,10 +72,15 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should not update product if user not admin' do
     sign_in users(:standard)
-    assert_raises(CanCan::AccessDenied) do
-      patch product_url(@product),
-            params: { product: { net_price: @product.net_price, product_description: @product.product_description,
-                                 product_name: @product.product_name } }
-    end
+    patch product_url(@product),
+          params: { product: { net_price: @product.net_price, product_description: @product.product_description,
+                               product_name: @product.product_name } }
+    assert_redirected_to root_path
+  end
+
+  test 'should not destroy product if user not admin' do
+    sign_in users(:standard)
+    delete product_url(@product)
+    assert_redirected_to root_path
   end
 end

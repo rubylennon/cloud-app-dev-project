@@ -8,7 +8,6 @@ class FeedsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
-    sign_in users(:admin)
     get feeds_url
     assert_response :success
   end
@@ -21,9 +20,8 @@ class FeedsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should not get new if logged in user is not admin' do
     sign_in users(:standard)
-    assert_raises(CanCan::AccessDenied) do
-      get new_feed_url
-    end
+    get new_feed_url
+    assert_redirected_to root_path
   end
 
   test 'should create feed if user is admin' do
@@ -37,13 +35,11 @@ class FeedsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should not create feed if user is not admin' do
     sign_in users(:standard)
-    assert_raises(CanCan::AccessDenied) do
-      post feeds_url, params: { feed: { description: @feed.description, name: @feed.name, url: @feed.url } }
-    end
+    post feeds_url, params: { feed: { description: @feed.description, name: @feed.name, url: @feed.url } }
+    assert_redirected_to root_path
   end
 
   test 'should show feed' do
-    sign_in users(:admin)
     get feed_url(@feed)
     assert_response :success
   end
@@ -56,9 +52,8 @@ class FeedsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should not get edit if user not admin' do
     sign_in users(:standard)
-    assert_raises(CanCan::AccessDenied) do
-      get edit_feed_url(@feed)
-    end
+    get edit_feed_url(@feed)
+    assert_redirected_to root_path
   end
 
   test 'should update feed if user admin' do
@@ -69,10 +64,9 @@ class FeedsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should not update feed if user not admin' do
     sign_in users(:standard)
-    assert_raises(CanCan::AccessDenied) do
-      get edit_feed_url(@feed)
-      patch feed_url(@feed), params: { feed: { description: @feed.description, name: @feed.name, url: @feed.url } }
-    end
+    get edit_feed_url(@feed)
+    patch feed_url(@feed), params: { feed: { description: @feed.description, name: @feed.name, url: @feed.url } }
+    assert_redirected_to root_path
   end
 
   test 'should destroy feed if user admin' do
@@ -86,8 +80,7 @@ class FeedsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should not destroy feed if user not admin' do
     sign_in users(:standard)
-    assert_raises(CanCan::AccessDenied) do
-      delete feed_url(@feed)
-    end
+    delete feed_url(@feed)
+    assert_redirected_to root_path
   end
 end

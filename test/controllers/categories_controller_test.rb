@@ -4,7 +4,7 @@ require 'test_helper'
 
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @category = categories(:two)
+    @category = categories(:one)
   end
 
   test 'should get index' do
@@ -21,9 +21,8 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should not get new if user not admin' do
     sign_in users(:standard)
-    assert_raises(CanCan::AccessDenied) do
-      get new_category_url
-    end
+    get new_category_url
+    assert_redirected_to root_path
   end
 
   test 'should create category if user admin' do
@@ -37,9 +36,8 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should not create category if user not admin' do
     sign_in users(:standard)
-    assert_raises(CanCan::AccessDenied) do
-      post categories_url, params: { category: { title: @category.title } }
-    end
+    post categories_url, params: { category: { title: @category.title } }
+    assert_redirected_to root_path
   end
 
   test 'should get edit if user admin' do
@@ -50,9 +48,8 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should not get edit if user not admin' do
     sign_in users(:standard)
-    assert_raises(CanCan::AccessDenied) do
-      get edit_category_url(@category)
-    end
+    get edit_category_url(@category)
+    assert_redirected_to root_path
   end
 
   test 'should update category if user admin' do
@@ -63,8 +60,13 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should not update category if user not admin' do
     sign_in users(:standard)
-    assert_raises(CanCan::AccessDenied) do
-      patch category_url(@category), params: { category: { title: @category.title } }
-    end
+    patch category_url(@category), params: { category: { title: @category.title } }
+    assert_redirected_to root_path
+  end
+
+  test 'should not destroy category if user not admin' do
+    sign_in users(:standard)
+    delete category_url(@category)
+    assert_redirected_to root_path
   end
 end
