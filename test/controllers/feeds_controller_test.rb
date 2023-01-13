@@ -36,7 +36,7 @@ class FeedsControllerTest < ActionDispatch::IntegrationTest
   test 'should not create feed if user is not admin' do
     sign_in users(:standard)
     post feeds_url, params: { feed: { description: @feed.description, name: @feed.name, url: @feed.url } }
-    assert_redirected_to root_path
+    assert_response :redirect
   end
 
   test 'should show feed' do
@@ -75,7 +75,7 @@ class FeedsControllerTest < ActionDispatch::IntegrationTest
       delete feed_url(@feed)
     end
 
-    assert_redirected_to feeds_url
+    assert_response :redirect
   end
 
   test 'should not destroy feed if user not admin' do

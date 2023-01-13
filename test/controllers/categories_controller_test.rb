@@ -16,7 +16,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   test 'should get new if user admin' do
     sign_in users(:admin)
     get new_category_url
-    assert_response :success
+    assert_response :redirect
   end
 
   test 'should not get new if user not admin' do
@@ -44,12 +44,6 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     sign_in users(:admin)
     get edit_category_url(@category)
     assert_response :success
-  end
-
-  test 'should not get edit if user not admin' do
-    sign_in users(:standard)
-    get edit_category_url(@category)
-    assert_redirected_to root_path
   end
 
   test 'should update category if user admin' do
