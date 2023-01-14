@@ -43,13 +43,13 @@ Ref Description - user profiles tutorial-->
   </div>
 
   <br>
-  <% if user_signed_in? %>
-    <% if current_user.admin? || current_user.profile == @profile %>
+<!--  <%# if user_signed_in? %>
+    <%# if current_user.admin? || current_user.profile == @profile %>
       <h3>User Login Information</h3>
-      <%= render 'profiles/tracking' %>
+      <%#= render 'profiles/tracking' %>
       <br>
       <h3>Activity Log</h3>
-      <%= render 'profiles/activity_log' %>
-    <% end %>
-  <% end %>
+      <%#= render 'profiles/activity_log' %>
+    <%# end %>
+  <%# end %>-->
 </div>
