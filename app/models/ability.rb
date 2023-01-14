@@ -24,7 +24,6 @@ class Ability
   def guest_abilities
     # define abilities for visitors only
     can :read, Product
-    can :read, Category
     can :read, Feed
     can :read, Entry
   end
@@ -36,7 +35,6 @@ class Ability
     can :manage, Order
     can :manage, OrderItem
     can :manage, User
-    can :read, Category
     can :read, Feed
     can :read, Entry
   end
