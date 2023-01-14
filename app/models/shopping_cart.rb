@@ -2,6 +2,8 @@
 
 # shopping cart custom gem which contains the shopping cart
 # functionality for the application
+# @Ref - https://www.youtube.com/watch?v=orDmqI-dlCo
+# Reference description: How to create an online shop checkout
 class ShoppingCart
   delegate :sub_total, :total, to: :order
 

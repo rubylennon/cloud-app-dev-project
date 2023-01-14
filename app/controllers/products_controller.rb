@@ -21,6 +21,8 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit; end
 
+  # @Ref: https://www.youtube.com/watch?v=s88Uc0InOAM
+  # Reference Description: How to Implement a Search Feature in Ruby on Rails
   def search
     @products = Product.where('product_name LIKE ?', "%#{params[:q]}%")
   end

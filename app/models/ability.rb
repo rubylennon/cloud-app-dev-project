@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-# @Ref - https://devtut.github.io/rubyonrails/authorization-with-cancan.html#handling-large-number-of-abilities
+# @Ref 1 - https://devtut.github.io/rubyonrails/authorization-with-cancan.html#handling-large-number-of-abilities
+# Reference Description - tutorial on how to use CanCan gem
+# @Ref 2 - https://www.youtube.com/watch?v=cTYu-OjUgDw
 # Reference Description - tutorial on how to use CanCan gem
 # ability model for user authorization using CanCan gem
 class Ability

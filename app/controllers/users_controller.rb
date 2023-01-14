@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 # users controller class for communicating between views and model
-# @Ref: https://www.youtube.com/watch?v=8UIG9Ggu9Q4
+# @Ref 1: https://www.youtube.com/watch?v=8UIG9Ggu9Q4
+# Reference Description - How to Add Devise Users and Admins to a Rails App
+# @Ref 2 - https://www.youtube.com/watch?v=7v2EMmfBJL8
+# Ref Description - User And Admin Accounts With Devise tutorial
 class UsersController < ApplicationController
   load_and_authorize_resource
   before_action :authenticate_user!

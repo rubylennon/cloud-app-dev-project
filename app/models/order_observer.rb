@@ -4,15 +4,13 @@
 class OrderObserver < ActiveRecord::Observer
   require 'logger'
 
-  def after_create(_order)
+  def after_create(order)
     log = Logger.new($stdout)
-    log.info('New order record created')
+    log.info("order ID #{order.id} created")
   end
 
   def after_save(order)
     log = Logger.new($stdout)
-    log.info("Order ID #{order.id} saved")
-    # order.total = (order.sub_total * 0.23) + order.sub_total
-    # order.save
+    log.info("order ID #{order.id} saved")
   end
 end

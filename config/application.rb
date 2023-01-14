@@ -15,7 +15,7 @@ module ECommerceApp
     config.load_defaults 7.0
 
     # Activate observers that should always be running
-    config.active_record.observers = %i[product_observer order_observer]
+    config.active_record.observers = %i[product_observer order_observer feed_observer profile_observer]
 
     # Configuration for the application, engines, and railties goes here.
     #
