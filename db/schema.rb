@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_13_000358) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_14_092305) do
   create_table "activities", force: :cascade do |t|
     t.string "trackable_type"
     t.integer "trackable_id"
@@ -28,12 +28,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_000358) do
     t.index ["recipient_type", "recipient_id"], name: "index_activities_on_recipient_type_and_recipient_id"
     t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
     t.index ["trackable_type", "trackable_id"], name: "index_activities_on_trackable_type_and_trackable_id"
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.string "title", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "entries", force: :cascade do |t|
@@ -80,15 +74,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_000358) do
     t.integer "user_id"
   end
 
-  create_table "product_categories", force: :cascade do |t|
-    t.integer "product_id", null: false
-    t.integer "category_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_product_categories_on_category_id"
-    t.index ["product_id"], name: "index_product_categories_on_product_id"
-  end
-
   create_table "products", force: :cascade do |t|
     t.string "product_name"
     t.text "product_description"
@@ -129,6 +114,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_000358) do
 
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
-  add_foreign_key "product_categories", "categories"
-  add_foreign_key "product_categories", "products"
 end

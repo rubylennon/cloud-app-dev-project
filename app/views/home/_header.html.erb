@@ -9,7 +9,6 @@
       <button class="w3-button w3-padding-large">Products <i class="fa fa-caret-down"></i></button>
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
         <a href="<%= products_path %>" class="w3-bar-item w3-button">View Products</a>
-        <a href="<%= categories_path %>" class="w3-bar-item w3-button">Categories</a>
       </div>
     </div>
 
@@ -50,7 +49,6 @@
           <a href="<%= new_feed_path %>" class="w3-bar-item w3-button">Add Feeds</a>
           <a href="<%= orders_path %>" class="w3-bar-item w3-button">User Orders</a>
           <a href="<%= profiles_path %>" class="w3-bar-item w3-button">User Profiles</a>
-          <a href="<%= product_categories_path %>" class="w3-bar-item w3-button">Product Categories</a>
         </div>
       </div>
     <% end %>
@@ -85,7 +83,6 @@
   <a href="<%= home_about_path %>" class="w3-bar-item w3-button w3-padding-large">About Us</a>
   <a href="<%= feeds_path %>" class="w3-bar-item w3-button w3-padding-large">Inspire Me</a>
   <a href="<%= products_path %>" class="w3-bar-item w3-button w3-padding-large">Products</a>
-  <a href="<%= categories_path %>" class="w3-bar-item w3-button w3-padding-large">Categories</a>
 
   <% if user_signed_in? %>
     <% if current_user.profile == nil %>
@@ -108,9 +105,7 @@
     <a href="<%= home_about_path %>" class="w3-bar-item w3-button w3-padding-large">Add Products</a>
     <a href="<%= feeds_path %>" class="w3-bar-item w3-button w3-padding-large">Manage Users</a>
     <a href="<%= products_path %>" class="w3-bar-item w3-button w3-padding-large">Add Feeds</a>
-    <a href="<%= categories_path %>" class="w3-bar-item w3-button w3-padding-large">User Orders</a>
     <a href="<%= products_path %>" class="w3-bar-item w3-button w3-padding-large">User Profiles</a>
-    <a href="<%= categories_path %>" class="w3-bar-item w3-button w3-padding-large">Add Products To Category</a>
   <% end %>
 
   <% if user_signed_in? %>

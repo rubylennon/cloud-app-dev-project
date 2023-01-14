@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :product_categories
 
   resources :profiles do
     member do
@@ -12,7 +11,6 @@ Rails.application.routes.draw do
   get 'home/access_denied'
 
   resources :orders
-  resources :categories
   get 'entries/index'
   get 'entries/show'
   resources :feeds
@@ -23,10 +21,6 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get 'home/about'
   get 'search', to: 'products#search'
-
-  resources :categories, only: %i[index show] do
-    resources :products, only: %i[index show]
-  end
 
   get 'entries/index'
   get 'entries/show'

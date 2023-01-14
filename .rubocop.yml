@@ -251,9 +251,6 @@ Lint/ScriptPermission:
 
 Metrics/MethodLength:
   Enabled: true
-  Exclude:
-    - app/controllers/product_categories_controller.rb
-    - app/controllers/product_categories_controller.rb
 
 Metrics/BlockLength:
   Enabled: true
