@@ -3,12 +3,10 @@
 require 'test_helper'
 
 class NewProfileFlowTest < ActionDispatch::IntegrationTest
-  def setup
+  test 'new profile' do
     @profile = profiles(:one)
     sign_in users(:admin)
-  end
 
-  test 'new profile' do
     get profiles_path
     assert_response :success
 

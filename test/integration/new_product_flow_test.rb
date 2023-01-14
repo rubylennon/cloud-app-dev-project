@@ -3,12 +3,10 @@
 require 'test_helper'
 
 class NewProductFlowTest < ActionDispatch::IntegrationTest
-  def setup
+  test 'new product' do
     @product = products(:one)
     sign_in users(:admin)
-  end
 
-  test 'new product' do
     get products_path
     assert_response :success
 
