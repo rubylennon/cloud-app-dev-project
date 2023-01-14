@@ -21,7 +21,7 @@ class FeedsControllerTest < ActionDispatch::IntegrationTest
   test 'should not get new if logged in user is not admin' do
     sign_in users(:standard)
     get new_feed_url
-    assert_redirected_to root_path
+    assert_redirected_to home_access_denied_path
   end
 
   test 'should create feed if user is admin' do
@@ -53,7 +53,7 @@ class FeedsControllerTest < ActionDispatch::IntegrationTest
   test 'should not get edit if user not admin' do
     sign_in users(:standard)
     get edit_feed_url(@feed)
-    assert_redirected_to root_path
+    assert_redirected_to home_access_denied_path
   end
 
   test 'should update feed if user admin' do
@@ -66,7 +66,7 @@ class FeedsControllerTest < ActionDispatch::IntegrationTest
     sign_in users(:standard)
     get edit_feed_url(@feed)
     patch feed_url(@feed), params: { feed: { description: @feed.description, name: @feed.name, url: @feed.url } }
-    assert_redirected_to root_path
+    assert_redirected_to home_access_denied_path
   end
 
   test 'should destroy feed if user admin' do
@@ -81,6 +81,6 @@ class FeedsControllerTest < ActionDispatch::IntegrationTest
   test 'should not destroy feed if user not admin' do
     sign_in users(:standard)
     delete feed_url(@feed)
-    assert_redirected_to root_path
+    assert_redirected_to home_access_denied_path
   end
 end
