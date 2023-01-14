@@ -3,12 +3,10 @@
 require 'test_helper'
 
 class NewFeedFlowTest < ActionDispatch::IntegrationTest
-  def setup
+  test 'new feed' do
     @feed = feeds(:one)
     sign_in users(:admin)
-  end
 
-  test 'new feed' do
     get feeds_path
     assert_response :success
 
