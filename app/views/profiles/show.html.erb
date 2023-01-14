@@ -1,5 +1,6 @@
 <!--@Ref: https://www.w3schools.com/w3css/w3css_templates.asp
 Reference Description: W3 Templates for web pages using W3.CSS Bootstrap -->
+
 <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:1000px" id="band">
   <h2><%= @profile.screenname %>'s Profile</h2>
 
@@ -25,8 +26,12 @@ Reference Description: W3 Templates for web pages using W3.CSS Bootstrap -->
       </form>
 
       <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-        <%= link_to "Edit Profile", edit_profile_path(@profile), class: 'w3-left w3-button w3-blue w3-round-large w3-border-blue w3-margin'%>
-        <%= button_to "Destroy Profile", @profile, class: 'w3-right w3-button w3-red w3-round-large w3-border-red w3-margin', method: :delete %>
+      <% if user_signed_in? %>
+        <% if current_user.admin? || current_user.id == @profile.id %>
+            <%= link_to "Edit Profile", edit_profile_path(@profile), class: 'w3-left w3-button w3-blue w3-round-large w3-border-blue w3-margin'%>
+            <%= button_to "Destroy Profile", @profile, class: 'w3-right w3-button w3-red w3-round-large w3-border-red w3-margin', method: :delete %>
+        <% end %>
+      <% end %>
       </div>
 
       <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
@@ -37,9 +42,13 @@ Reference Description: W3 Templates for web pages using W3.CSS Bootstrap -->
   </div>
 
   <br>
-  <h3>User Login Information</h3>
-  <%= render 'profiles/tracking' %>
-  <br>
-  <h3>Activity Log</h3>
-  <%= render 'profiles/activity_log' %>
+  <% if user_signed_in? %>
+    <% if current_user.admin? || current_user.profile == @profile %>
+      <h3>User Login Information</h3>
+      <%= render 'profiles/tracking' %>
+      <br>
+      <h3>Activity Log</h3>
+      <%= render 'profiles/activity_log' %>
+    <% end %>
+  <% end %>
 </div>

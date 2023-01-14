@@ -1,17 +1,40 @@
-<p style="color: green"><%= notice %></p>
+<!--@Ref: https://www.w3schools.com/w3css/w3css_templates.asp
+Reference Description: W3 Templates for web pages using W3.CSS Bootstrap -->
+<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:1000px" id="band">
 
-<%= render @product %>
+  <div class="w3-modal-content w3-card-4" style="max-width:600px">
+    <div class="w3-center"><br>
 
+      <form class="w3-container">
+        <div class="w3-section">
 
+          <%= render @product %>
 
-<div>
-  <%= link_to "Edit this product", edit_product_path(@product) %> |
-  <%= link_to "Back to products", products_path %>
+        </div>
+      </form>
 
-  <%= button_to "Destroy this product", @product, method: :delete %>
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <%= form_tag order_items_path do %>
+          <%= hidden_field_tag :product_id, @product.id %>
+          <label class="w3-left"><b>Cart Quantity</b></label>
+          <%= number_field_tag :quantity, 1, class: 'form-control w3-input w3-border w3-margin-bottom', :required => true %>
+          <%= submit_tag "Add to Cart", class: 'w3-button w3-purple w3-round-large w3-border-purple w3-margin' %>
+        <% end %>
+      </div>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <% if user_signed_in? %>
+          <% if current_user.admin? %>
+            <%= link_to "Edit", edit_product_path(@product), class: 'w3-left w3-button w3-blue w3-round-large w3-border-blue w3-margin' %>
+            <%= button_to "Delete", @product, class: 'w3-right w3-button w3-red w3-round-large w3-border-red w3-margin', method: :delete %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <%= link_to "Back to products", products_path %>
+      </div>
+
+    </div>
+  </div>
 </div>
-<%= form_tag order_items_path do %>
-  <%= hidden_field_tag :product_id, @product.id %>
-  <%= number_field_tag :quantity, 1 %>
-  <%= submit_tag "Add to Cart" %>
-<% end %>

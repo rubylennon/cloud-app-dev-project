@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'home/access_denied'
+
   resources :orders
   resources :categories
   get 'entries/index'
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: %i[index show edit update]
   resources :products
+  resources :orders
   root to: 'home#index'
   get 'home/about'
   get 'search', to: 'products#search'

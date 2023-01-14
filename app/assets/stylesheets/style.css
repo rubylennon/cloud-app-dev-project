@@ -1,12 +1,19 @@
 /* Application */
 
-.fa-anchor {
+#homepageBag.fa-shopping-bag {
     font-size: 200px;
 }
 
-.fa-coffee {
+.fa-lightbulb-o {
     font-size: 200px;
-    font-size: 200px;
+}
+
+footer{
+    margin-top: auto;
+}
+
+#companyLogo.w3-bar-item {
+    padding: 0px;
 }
 
 .fa-user-circle-o,
@@ -17,14 +24,19 @@
 .fa-object-group,
 .fa-rss,
 .fa-shopping-bag,
-.fa-bookmark-o
-{
+.fa-bookmark-o,
+.fa-exclamation-circle,
+.fa-cart-plus {
     font-size: 100px;
     font-size: 100px;
 }
 
 body,h1,h2,h3,h4,h5,h6 {
     font-family: "Lato", sans-serif;
+}
+
+#hamburger{
+    background-color: #BDA0BC;
 }
 
 .w3-bar,h1,button {
