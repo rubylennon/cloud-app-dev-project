@@ -9,7 +9,7 @@ class ProductObserver < ActiveRecord::Observer
     log.info("Product ID #{product.id} created")
   end
 
-  def after_delete(product)
+  def after_destroy(product)
     log = Logger.new($stdout)
     log.info("Product ID #{product.id} deleted")
   end

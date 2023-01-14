@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# @Ref - https://www.sitepoint.com/building-an-rss-reader-in-rails-is-easy/
+# Ref Description - tutorial on how to create a Rails RSS feed reader
 namespace :sync do
   task feeds: [:environment] do
     Feed.all.each do |feed|

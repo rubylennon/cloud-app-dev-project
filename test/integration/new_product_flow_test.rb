@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class ProductFlowTest < ActionDispatch::IntegrationTest
+class NewProductFlowTest < ActionDispatch::IntegrationTest
   def setup
     @product = products(:one)
     sign_in users(:admin)
@@ -16,9 +16,6 @@ class ProductFlowTest < ActionDispatch::IntegrationTest
                                              product_description: @product.product_description,
                                              net_price: @product.net_price } }
     assert_response :redirect
-
-    #     assert_select 'p', @product.product_description
-    #
-    #     get products_path
+    assert_match(%r{/#{Product.last.id}}, @response.location)
   end
 end
