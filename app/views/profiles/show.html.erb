@@ -44,17 +44,10 @@ Ref Description - user profiles tutorial-->
 
   <br>
 
-  <%= render 'profiles/tracking' %>
-
-  <%= render 'profiles/activity_log' %>
-
-<!--  <%# if user_signed_in? %>
-    <%# if current_user.admin? || current_user.profile == @profile %>
-      <h3>User Login Information</h3>
-      <%#= render 'profiles/tracking' %>
-      <br>
+  <% if user_signed_in? %>
+    <% if current_user.admin? || current_user.profile == @profile %>
       <h3>Activity Log</h3>
-      <%#= render 'profiles/activity_log' %>
-    <%# end %>
-  <%# end %>-->
+      <%= render 'profiles/activity_log' %>
+    <% end %>
+  <% end %>
 </div>
