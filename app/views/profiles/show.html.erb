@@ -28,7 +28,7 @@ Ref Description - user profiles tutorial-->
 
       <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
       <% if user_signed_in? %>
-        <% if current_user.admin? || current_user.id == @profile.id %>
+        <% if current_user.admin? || current_user.id == @user.id %>
             <%= link_to "Edit Profile", edit_profile_path(@profile), class: 'w3-left w3-button w3-blue w3-round-large w3-border-blue w3-margin'%>
             <%= button_to "Destroy Profile", @profile, class: 'w3-right w3-button w3-red w3-round-large w3-border-red w3-margin', method: :delete %>
         <% end %>
