@@ -2,16 +2,17 @@
   <%= link_to "Go Back", :back, class: "w3-left w3-button w3-purple w3-round-large w3-border-purple" %>
   <h2>Data Entries</h2>
   <table style="width:100%">
-  <!--  <tr>-->
-  <!--    <th colspan="6">Feed Entries</th>-->
-  <!--  </tr>-->
     <tr>
       <th>Entry ID</th>
       <th>Entry Title</th>
       <th>Published Date</th>
       <th>Author</th>
       <th>Feed</th>
-      <th>Content Available</th>
+      <% if user_signed_in? %>
+        <% if current_user.admin? %>
+          <th>Content Available</th>
+        <% end %>
+      <% end %>
     </tr>
     <% @entries.each do |entry| %>
     <tr>
@@ -30,13 +31,17 @@
       <td>
         <%= entry.feed.name %>
       </td>
-      <td>
-        <% if entry.content == nil %>
-          False
-        <% else %>
-          True
+      <% if user_signed_in? %>
+        <% if current_user.admin? %>
+          <td>
+            <% if entry.content == nil %>
+              False
+            <% else %>
+              True
+            <% end %>
+          </td>
         <% end %>
-      </td>
+      <% end %>
     </tr>
     <% end %>
   </table>

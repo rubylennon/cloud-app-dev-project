@@ -1,17 +1,22 @@
 <div id="<%= dom_id product %>">
+
+  <%= image_tag "products/#{product.image_filename}", :style => "width:45%"%>
+
+  <hr>
   <p>
-    <strong>Product name:</strong>
+    <label><b>Product name:</b></label>
     <%= product.product_name %>
   </p>
 
   <p>
-    <strong>Product description:</strong>
+    <label><b>Product description:</b></label>
     <%= product.product_description %>
   </p>
 
   <p>
-    <strong>Net price:</strong>
+    <label><b>Net price:</b></label>
     <%= product.net_price %>
   </p>
+  <hr>
 
 </div>

@@ -1,27 +1,31 @@
-<h1>Search Results</h1>
+<!--@Ref: https://www.w3schools.com/w3css/w3css_templates.asp
+Reference Description: W3 Templates for web pages using W3.CSS Bootstrap -->
+<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:1500px" id="band">
+  <h2>Search Results</h2>
 
-<% if @products.count == 0 %>
-    <p>Sorry, no products matched your search query. Please try again </p>
-<% else %>
-    <span> <%= @products.count %> Product(s) Found: </span>
-    <br>
-    <% @products.each do |product|%>
-      <div class="card">
-        <%= image_tag("products/#{product.image_filename}") %>
-        <h3>
-          <%= product.product_name %>
-        </h3>
-        <p class="price">
-          <%= product.net_price %>
-        </p>
-        <p>
-          <%= product.product_description %>
-        </p>
-        <p>
-          <button>
-            <%= link_to "Show this product", product %>
-          </button>
-        </p>
-      </div>
-    <% end %>
-<% end %>
+    <% if @products.count == 0 %>
+        <p>Sorry, no products matched your search query. Please try again </p>
+    <% else %>
+        <span> <%= @products.count %> Product(s) Found: </span>
+        <br>
+
+        <div class="w3-container">
+          <% @products.each do |product|%>
+            <div class="w3-col l3 s6">
+              <div class="w3-container">
+                <%= image_tag "products/#{product.image_filename}", :style => "width:100%"%>
+                <p><%= product.product_name %>
+                  <br>
+                  <b><%= product.net_price %></b>
+                  <br>
+                  <%= product.product_description %>
+                  <br>
+                  <%= link_to "Show this product", product, class: 'w3-button w3-medium w3-purple w3-round-large w3-border-purple w3-margin' %>
+                </p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>

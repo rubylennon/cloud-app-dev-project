@@ -1,36 +1,46 @@
 <!--@Ref: https://www.w3schools.com/w3css/w3css_templates.asp
 Reference Description: W3 Templates for web pages using W3.CSS Bootstrap -->
-<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:1000px" id="band">
-  <h2>Account Details</h2>
 
-  <div class="w3-modal-content w3-card-4" style="max-width:600px">
-    <div class="w3-center"><br>
-      <i class="fa fa-user-circle-o" aria-hidden="true" class="w3-circle w3-margin-top"></i>
+<% if current_user.admin? || current_user.id == @user.id %>
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:1000px" id="band">
+    <h2>Account Details</h2>
 
-      <form class="w3-container">
-        <div class="w3-section">
+    <div class="w3-modal-content w3-card-4" style="max-width:600px">
+      <div class="w3-center"><br>
+        <i class="fa fa-user-circle-o" aria-hidden="true" class="w3-circle w3-margin-top"></i>
 
-          <hr>
-          <p>
-            <strong>Full Name:</strong>
-            <%= @user.full_name %>
-          </p>
+        <form class="w3-container">
+          <div class="w3-section">
 
-          <p>
-            <strong>Account Type:</strong>
-            <%= @user.account_type %>
-          </p>
-          <hr>
+            <hr>
+            <p>
+              <strong>Full Name:</strong>
+              <%= @user.full_name %>
+            </p>
 
+            <p>
+              <strong>Account Type:</strong>
+              <%= @user.account_type %>
+            </p>
+            <hr>
+
+          </div>
+        </form>
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+          <% if current_user.id == @user.id || current_user.admin? %>
+            <%= link_to 'Edit Account Details', edit_user_path(@user.id), class: 'w3-button w3-blue w3-round-large w3-border-blue w3-margin' %>
+          <% end %>
         </div>
-      </form>
 
-      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-        <% if current_user.id == @user.id || current_user.admin? %>
-          <%= link_to 'Edit Account Details', edit_user_path(@user.id), class: 'w3-button w3-blue w3-round-large w3-border-blue w3-margin' %>
-        <% end %>
       </div>
-
     </div>
   </div>
-</div>
+  <% else %>
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+    <i class="fa fa-exclamation-circle" aria-hidden="true" class="w3-circle w3-margin-top"></i>
+    <h2 class="w3-wide">Access Denied</h2>
+    <p class="w3-opacity"><i>Sorry, you don’t have permission to access this action.</i></p>
+    <p class="w3-center">Please return to the homepage to continue using the application.</p>
+  </div>
+<% end %>
