@@ -22,7 +22,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test 'should not get new if user not admin' do
     sign_in users(:standard)
     get new_product_url
-    assert_redirected_to root_path
+    assert_redirected_to home_access_denied_path
   end
 
   test 'should create product if user admin' do
@@ -41,7 +41,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     post products_url,
          params: { product: { net_price: @product.net_price, product_description: @product.product_description,
                               product_name: @product.product_name } }
-    assert_redirected_to root_path
+    assert_redirected_to home_access_denied_path
   end
 
   test 'should show product' do
@@ -69,12 +69,12 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     patch product_url(@product),
           params: { product: { net_price: @product.net_price, product_description: @product.product_description,
                                product_name: @product.product_name } }
-    assert_redirected_to root_path
+    assert_redirected_to home_access_denied_path
   end
 
   test 'should not destroy product if user not admin' do
     sign_in users(:standard)
     delete product_url(@product)
-    assert_redirected_to root_path
+    assert_redirected_to home_access_denied_path
   end
 end
