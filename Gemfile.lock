@@ -211,6 +211,11 @@ GEM
       loofah (~> 2.19, >= 2.19.1)
     rails-observers (0.1.5)
       activemodel (>= 4.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (7.0.4)
       actionpack (= 7.0.4)
       activesupport (= 7.0.4)
@@ -324,12 +329,13 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.4)
   rails-observers (~> 0.1.5)
+  rails_12factor
   rubocop
   rubocop-rails
   ruby_audit
   selenium-webdriver
   sprockets-rails
-  sqlite3 (~> 1.4)
+  sqlite3
   stimulus-rails
   turbo-rails
   tzinfo-data

@@ -12,7 +12,9 @@ gem 'rails', '~> 7.0.4'
 gem 'sprockets-rails'
 
 # Use sqlite3 as the database for Active Record [https://rubygems.org/gems/sqlite3]
-gem 'sqlite3', '~> 1.4'
+group :development, :test do
+  gem 'sqlite3'
+end
 
 # use devise for flexible user authentication [https://rubygems.org/gems/devise]
 gem 'devise', '~> 4.8', '>= 4.8.1'
@@ -92,4 +94,10 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+end
+
+# Heroku uses Heroku Postgres DB based on PostgreSQL
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
